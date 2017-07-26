@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TestAndroid</string>
+    <string name="hello">Hello</string>
+    <string name="world">World</string>
+    <string name="wonderful">It\'s a wonderful</string>
+    <string name="day">day</string>
+</resources>
