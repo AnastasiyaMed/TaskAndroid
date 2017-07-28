@@ -1,4 +1,4 @@
-package by.it_academy.medvedeva.testandroid;
+package by.it_academy.medvedeva.testandroid.task1;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,13 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import by.it_academy.medvedeva.testandroid.R;
+
 /**
  * Created by Medvedeva Anastasiya
  * on 24.07.2017.
  */
 
-public class MainActivity extends Activity implements View.OnClickListener {
-    private final static String TAG = "MainActivity";
+public class Task1Activity extends Activity implements View.OnClickListener {
+    private final static String TAG = "Task1Activity";
+    public final static String USER_NAME_TEXT = "userNameText";
+    public final static String PASSWORD_TEXT = "passwordText";
     private TextView wonder;
     private TextView day;
 
@@ -22,12 +26,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_task1);
         Log.d(TAG, "onCreate()");
+
+        String userName = getIntent().getStringExtra(USER_NAME_TEXT);
+        String password = getIntent().getStringExtra(PASSWORD_TEXT);
 
         final Button helloButton = (Button) findViewById(R.id.hello_button);
         wonder = (TextView) findViewById(R.id.wonderful_text);
         day = (TextView) findViewById(R.id.day_text);
+
+        wonder.setText(userName);
+        day.setText(password);
+
         final View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

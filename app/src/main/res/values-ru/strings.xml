@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Тест Андроид</string>
+
+    <string name="hello">Привет</string>
+    <string name="world">Мир!</string>
+    <string name="wonderful">Это очень</string>
+    <string name="day">чудесный день</string>
+    <string name="task1">Задание 1</string>
+    <string name="task2">Задание 2</string>
+
+    <!--ClassWork2 -->
+    <string name="class2">Второе занятие</string>
+    <string name="name">Имя</string>
+    <string name="login">Войти</string>
+    <string name="password">Пароль</string>
+</resources>

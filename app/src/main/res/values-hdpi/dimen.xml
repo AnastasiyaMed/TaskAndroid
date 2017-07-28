@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="classwork2_start_end_padding">20dp</dimen>
+    <dimen name="text_size">18sp</dimen>
+
+    <!-- TASK2-->
+    <dimen name="task2_start_margin">130dp</dimen>
+    <dimen name="task2_end_margin">130dp</dimen>
+    <dimen name="task2_top_margin">15dp</dimen>
+</resources>

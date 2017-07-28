@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorViolet"
-    android:orientation="vertical"
-    tools:context="by.it_academy.medvedeva.testandroid.MainActivity">
-
+    android:gravity="center"
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/hello_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/hello" />
-
-
-    <TextView
-        android:id="@+id/wonderful_text"
-        android:layout_width="match_parent"
+        android:id="@+id/task1_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/wonderful"
-        android:textSize="30sp" />
+        android:text="@string/task1" />
 
-    <TextView
-        android:id="@+id/day_text"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/task2_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/day"
-        android:textSize="30sp" />
+        android:text="@string/task2" />
 
-
+    <Button
+        android:id="@+id/class2_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/class2" />
 </LinearLayout>

@@ -2,6 +2,11 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ed90b0</color>
     <color name="colorViolet">#5d5fab</color>
+    <color name="colorGrin">#6df173</color>
+    <color name="colorRed">#f40404</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorYellow">#f9ed07</color>
+
 </resources>

@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LoginButton">
+        <item name="android:textColor">@android:color/holo_green_dark</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:layout_marginEnd">@dimen/classwork2_start_end_padding</item>
+        <item name="android:layout_marginStart">@dimen/classwork2_start_end_padding</item>
+    </style>
+
 </resources>
