@@ -9,8 +9,10 @@ import android.widget.Button;
 
 import by.it_academy.medvedeva.testandroid.R;
 import by.it_academy.medvedeva.testandroid.classwork2.Classwork2Activity;
+import by.it_academy.medvedeva.testandroid.classwork3.Classwork3Activity;
 import by.it_academy.medvedeva.testandroid.task1.Task1Activity;
 import by.it_academy.medvedeva.testandroid.task2.Task2Activity;
+import by.it_academy.medvedeva.testandroid.task3.Task3Activity;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -26,10 +28,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         final Button task1Button = (Button) findViewById(R.id.task1_button);
         final Button task2Button = (Button) findViewById(R.id.task2_button);
+        final Button task3Button = (Button) findViewById(R.id.task3_button);
         final Button class2 = (Button) findViewById(R.id.class2_button);
+        final Button class3 = (Button) findViewById(R.id.class3_button);
 
         class2.setOnClickListener(this);
+        class3.setOnClickListener(this);
         task2Button.setOnClickListener(this);
+        task3Button.setOnClickListener(this);
 
         task1Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +58,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intent = new Intent(getApplicationContext(), Classwork2Activity.class);
                 startActivity(intent);
                 break;
+            case (R.id.class3_button):
+                intent = new Intent(getApplicationContext(), Classwork3Activity.class);
+                startActivity(intent);
+                break;
             case (R.id.task2_button):
                 intent = new Intent(getApplicationContext(), Task2Activity.class);
                 startActivity(intent);
                 break;
+            case (R.id.task3_button):
+                intent = new Intent(getApplicationContext(), Task3Activity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }

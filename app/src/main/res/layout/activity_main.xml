@@ -18,8 +18,20 @@
         android:text="@string/task2" />
 
     <Button
+        android:id="@+id/task3_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task3" />
+
+    <Button
         android:id="@+id/class2_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/class2" />
+
+    <Button
+        android:id="@+id/class3_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/class3" />
 </LinearLayout>
