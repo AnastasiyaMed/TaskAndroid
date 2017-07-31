@@ -6,6 +6,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/varStringText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/uri_text"
         android:layout_width="match_parent"
@@ -13,6 +18,7 @@
         android:ems="10"
         android:inputType="textUri"
         android:text="@string/link" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -24,5 +30,5 @@
         android:id="@+id/imageSwitcherButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/task3_button" />
 </LinearLayout>

@@ -16,4 +16,5 @@
     <string name="class3">ClassWork 3</string>
     <string name="link">http://nerdbusiness.com/articles/218-wallpapers/previews/Hamad_Darwish_dot_com_Windows_Vista_Wallpapers_16.jpg</string>
     <string name="task3">Task3</string>
+    <string name="task3_button">Press to switch image</string>
 </resources>

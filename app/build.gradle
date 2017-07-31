@@ -7,7 +7,7 @@ android {
         applicationId "by.it_academy.medvedeva.testandroid"
         minSdkVersion 18
         targetSdkVersion 25
-
+        buildConfigField "String", "API_ENDPOINT", '"https://my-server.example"'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

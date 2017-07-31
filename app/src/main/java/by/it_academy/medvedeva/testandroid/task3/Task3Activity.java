@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import by.it_academy.medvedeva.testandroid.BuildConfig;
 import by.it_academy.medvedeva.testandroid.R;
 
 /**
@@ -29,6 +30,9 @@ public class Task3Activity extends Activity implements View.OnClickListener {
         uriText = (TextView) findViewById(R.id.uri_text);
         imageView = (ImageView) findViewById(R.id.imageView);
         Button imageSwitcherButton = (Button) findViewById(R.id.imageSwitcherButton);
+        TextView varStringText = (TextView) findViewById(R.id.varStringText);
+
+        varStringText.setText("Добавляем содержимое API_ENDPOINT:  " + BuildConfig.API_ENDPOINT);
 
         imageSwitcherButton.setOnClickListener(this);
 
