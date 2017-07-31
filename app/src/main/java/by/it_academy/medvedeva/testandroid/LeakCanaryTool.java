@@ -11,7 +11,6 @@ import com.squareup.leakcanary.LeakCanary;
 
 public class LeakCanaryTool extends Application {
 
-    //Пока оставляю просто код из примера. Нужно разобраться что сюда писать :)
 
     @Override
     public void onCreate() {
