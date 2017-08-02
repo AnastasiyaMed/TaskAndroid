@@ -34,4 +34,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/class3" />
+
+    <Button
+        android:id="@+id/class4_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/class4" />
+
+    <Button
+        android:id="@+id/class5_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/class5" />
 </LinearLayout>

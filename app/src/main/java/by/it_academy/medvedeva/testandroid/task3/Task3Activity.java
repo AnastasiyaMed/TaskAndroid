@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import by.it_academy.medvedeva.testandroid.BuildConfig;
 import by.it_academy.medvedeva.testandroid.R;
@@ -40,7 +40,6 @@ public class Task3Activity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Picasso.with(this).load(uriText.getText().toString())
-                .error(R.drawable.wer).placeholder(R.drawable.wer).resize(400, 260).into(imageView);
+        Glide.with(this).load("https://goo.gl/oaZVyX").into(imageView);
     }
 }

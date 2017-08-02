@@ -3,6 +3,9 @@
     package="by.it_academy.medvedeva.testandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".LeakCanaryTool"
@@ -13,11 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".task1.Task1Activity" />
         <activity android:name=".task2.Task2Activity" />
         <activity android:name=".task3.Task3Activity" />
         <activity android:name=".classwork2.Classwork2Activity" />
         <activity android:name=".classwork3.Classwork3Activity" />
+        <activity android:name=".classwork4.Classwork4Activity" />
+        <activity android:name=".classwork5.Classwork5Activity" />
 
         <activity
             android:name=".main.MainActivity"
@@ -29,6 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--<receiver android:name=".classwork5.MyBroadcastReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
     </application>
 
 </manifest>
