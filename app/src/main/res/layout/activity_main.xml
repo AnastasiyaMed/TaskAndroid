@@ -24,6 +24,12 @@
         android:text="@string/task3" />
 
     <Button
+        android:id="@+id/task4_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task4" />
+
+    <Button
         android:id="@+id/class2_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,4 +52,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/class5" />
+
+    <Button
+        android:id="@+id/class6_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/class6" />
 </LinearLayout>

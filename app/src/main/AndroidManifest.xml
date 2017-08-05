@@ -20,10 +20,12 @@
         <activity android:name=".task1.Task1Activity" />
         <activity android:name=".task2.Task2Activity" />
         <activity android:name=".task3.Task3Activity" />
+        <activity android:name=".task4.Task4Activity" />
         <activity android:name=".classwork2.Classwork2Activity" />
         <activity android:name=".classwork3.Classwork3Activity" />
         <activity android:name=".classwork4.Classwork4Activity" />
         <activity android:name=".classwork5.Classwork5Activity" />
+        <activity android:name=".classwork6.Classwork6Activity" />
 
         <activity
             android:name=".main.MainActivity"
@@ -36,11 +38,15 @@
             </intent-filter>
         </activity>
 
+        <!-- Это нужно если определять класс БродкастРесивера и использовать его для всего приложения-->
         <!--<receiver android:name=".classwork5.MyBroadcastReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />-->
-            <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />-->
+        <!--</intent-filter>-->
         <!--</receiver>-->
+        <service android:name=".classwork5.MyService" />
+        <service android:name=".classwork5.MyIntentService" />
+
     </application>
 
 </manifest>
