@@ -63,38 +63,46 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent();
+        Intent intent;
         switch (v.getId()) {
             case (R.id.class2_button):
                 intent = new Intent(getApplicationContext(), Classwork2Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.class3_button):
                 intent = new Intent(getApplicationContext(), Classwork3Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.class4_button):
                 intent = new Intent(getApplicationContext(), Classwork4Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.class5_button):
                 intent = new Intent(getApplicationContext(), Classwork5Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.class6_button):
                 intent = new Intent(getApplicationContext(), Classwork6Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.task1_button):
                 intent = new Intent(getApplicationContext(), Task1Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.task2_button):
                 intent = new Intent(getApplicationContext(), Task2Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.task3_button):
                 intent = new Intent(getApplicationContext(), Task3Activity.class);
+                startActivity(intent);
                 break;
             case (R.id.task4_button):
                 intent = new Intent(getApplicationContext(), Task4Activity.class);
-                overridePendingTransition(R.anim.translate_from_main, R.anim.alpha);
+                startActivity(intent);
+                overridePendingTransition(R.anim.translate, R.anim.alpha);
                 break;
         }
-        startActivity(intent);
 
     }
 
