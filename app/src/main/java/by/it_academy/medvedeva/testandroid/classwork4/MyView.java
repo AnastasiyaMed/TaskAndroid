@@ -57,7 +57,7 @@ public class MyView extends View {
         myPaint.setAntiAlias(true);
         myPaint.setColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
         // myPaint.setStyle(Paint.Style.FILL); // полностью заливает цветом фигуру
-        myPaint.setStyle(Paint.Style.STROKE); // полностью заливает цветом только контур фигуры
+        myPaint.setStyle(Paint.Style.STROKE); // заливает цветом только контур фигуры
 
         Resources r = getResources();
         float strokeWidthInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, r.getDisplayMetrics());
@@ -89,6 +89,7 @@ public class MyView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
     }
 
     @Override
