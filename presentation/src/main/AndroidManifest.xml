@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="by.academy.medvedeva.testandroid">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:name="by.academy.medvedeva.testandroid.LeakCanaryTool"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <activity android:name="by.academy.medvedeva.testandroid.task1.Task1Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task2.Task2Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task3.Task3Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task4.Task4Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task5.Task5Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork2.Classwork2Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork3.Classwork3Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork4.Classwork4Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork5.Classwork5Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork6.Classwork6Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork7.Classwork7Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork8.Classwork8Activity" />
+
+        <activity
+            android:name="by.academy.medvedeva.testandroid.main.MainActivity"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Это нужно если определять класс БродкастРесивера и использовать его для всего приложения-->
+        <!--<receiver android:name=".classwork5.MyBroadcastReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+        <service android:name="by.academy.medvedeva.testandroid.classwork5.MyService" />
+        <service android:name="by.academy.medvedeva.testandroid.classwork5.MyIntentService" />
+
+    </application>
+
+</manifest>
