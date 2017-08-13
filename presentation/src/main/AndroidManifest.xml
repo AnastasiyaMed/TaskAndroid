@@ -48,6 +48,7 @@
         <!--</receiver>-->
         <service android:name="by.academy.medvedeva.testandroid.classwork5.MyService" />
         <service android:name="by.academy.medvedeva.testandroid.classwork5.MyIntentService" />
+        <service android:name="by.academy.medvedeva.testandroid.task5.Task5Service" />
 
     </application>
 

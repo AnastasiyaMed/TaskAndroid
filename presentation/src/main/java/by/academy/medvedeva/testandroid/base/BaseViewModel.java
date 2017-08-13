@@ -6,4 +6,12 @@ package by.academy.medvedeva.testandroid.base;
  */
 
 public interface BaseViewModel {
+
+    void init();
+
+     void release();
+
+     void resume();
+
+     void pause();
 }
