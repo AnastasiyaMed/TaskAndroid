@@ -21,6 +21,7 @@
         <activity android:name="by.academy.medvedeva.testandroid.task3.Task3Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.task4.Task4Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.task5.Task5Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task6.Task6Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork2.Classwork2Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork3.Classwork3Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork4.Classwork4Activity" />

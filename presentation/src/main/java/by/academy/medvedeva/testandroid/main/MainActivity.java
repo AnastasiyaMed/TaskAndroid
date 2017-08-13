@@ -20,6 +20,7 @@ import by.academy.medvedeva.testandroid.task2.Task2Activity;
 import by.academy.medvedeva.testandroid.task3.Task3Activity;
 import by.academy.medvedeva.testandroid.task4.Task4Activity;
 import by.academy.medvedeva.testandroid.task5.Task5Activity;
+import by.academy.medvedeva.testandroid.task6.Task6Activity;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -41,6 +42,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button task3Button = (Button) findViewById(R.id.task3_button);
         final Button task4Button = (Button) findViewById(R.id.task4_button);
         final Button task5Button = (Button) findViewById(R.id.task5_button);
+        final Button task6Button = (Button) findViewById(R.id.task6_button);
         final Button class2 = (Button) findViewById(R.id.class2_button);
         final Button class3 = (Button) findViewById(R.id.class3_button);
         final Button class4 = (Button) findViewById(R.id.class4_button);
@@ -60,6 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         task3Button.setOnClickListener(this);
         task4Button.setOnClickListener(this);
         task5Button.setOnClickListener(this);
+        task6Button.setOnClickListener(this);
 
         task1Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +124,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.task5_button):
                 intent = new Intent(getApplicationContext(), Task5Activity.class);
+                startActivity(intent);
+                break;
+            case (R.id.task6_button):
+                intent = new Intent(getApplicationContext(), Task6Activity.class);
                 startActivity(intent);
                 break;
         }
