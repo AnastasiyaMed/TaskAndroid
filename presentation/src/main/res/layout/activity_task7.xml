@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="user"
+            type="by.academy.medvedeva.testandroid.task7.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/photoImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{user.photo}" />
+
+        <TextView
+            android:id="@+id/fullNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.fullName}" />
+
+        <TextView
+            android:id="@+id/ageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.age}" />
+
+        <TextView
+            android:id="@+id/sexText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.sex}" />
+
+    </LinearLayout>
+</layout>
