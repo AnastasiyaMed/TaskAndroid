@@ -1,22 +1,13 @@
 package by.academy.medvedeva.testandroid;
 
 import com.bumptech.glide.annotation.GlideModule;
-
-import java.lang.annotation.Annotation;
+import com.bumptech.glide.module.AppGlideModule;
 
 /**
  * Created by Medvedeva Anastasiya
  * on 01.08.2017.
  */
 
-public class MyGlideModule implements GlideModule {
-    @Override
-    public String glideName() {
-        return null;
-    }
+@GlideModule
+public final class MyGlideModule extends AppGlideModule {}
 
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
-    }
-}

@@ -1,6 +1,9 @@
 package by.academy.medvedeva.testandroid.task7;
 
-import android.databinding.ObservableField;
+import android.databinding.BindingAdapter;
+import android.widget.ImageView;
+
+import by.academy.medvedeva.testandroid.GlideApp;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -9,13 +12,13 @@ import android.databinding.ObservableField;
 
 public class User {
     // класс ОбсерваблФилд следит за изменениями состояния переменной
-    private ObservableField<String> photo;
+    public String photo;
     private String fullName;
     private String age;
     private String sex;
 
 
-    public User(ObservableField<String> photo, String fullName, String age, String sex) {
+    public User(String photo, String fullName, String age, String sex) {
         this.photo = photo;
         this.fullName = fullName;
         this.age = age;
@@ -25,9 +28,9 @@ public class User {
     public User() {
     }
 
-    public ObservableField<String> getPhoto() {
-        return photo;
-    }
+   // public String getPhoto() {
+ //       return photo;
+ //   }
 
     public String getFullName() {
         return fullName;
@@ -41,8 +44,9 @@ public class User {
         return sex;
     }
 
-    public void setPhoto(ObservableField<String> photo) {
-        this.photo = photo;
+    @BindingAdapter("bind:src")
+    public static void setPhoto(ImageView photoImage, String imageUrl) {
+        GlideApp.with(photoImage.getContext()).load(imageUrl).into(photoImage);
     }
 
     public void setFullName(String fullName) {

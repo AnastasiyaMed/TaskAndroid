@@ -24,9 +24,8 @@ public class Task7Activity extends Activity {
         // сетает активити в xml
         ActivityTask7Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_task7);
 
-        ObservableField<String> photo = new ObservableField<>("https://www.nastroy.net/images/post/540473-1490104457.jpg");
         User user = new User();
-        user.setPhoto(photo);
+        User.setPhoto(binding.photoImage, "http://www.ljplus.ru/img4/v/i/visla/bwerro26.jpg");
         user.setAge("22");
         user.setFullName("Сидоров Василий Вячеславович");
         user.setSex("man");
