@@ -1,42 +1,35 @@
 package by.academy.medvedeva.testandroid.task7;
 
-import android.databinding.BindingAdapter;
-import android.widget.ImageView;
-
-import by.academy.medvedeva.testandroid.GlideApp;
-
 /**
  * Created by Medvedeva Anastasiya
- * on 15.08.2017.
+ * on 17.08.2017.
  */
 
 public class User {
-    // класс ОбсерваблФилд следит за изменениями состояния переменной
-    public String photo;
+    private String photo;
     private String fullName;
-    private String age;
+    private int age;
     private String sex;
 
+    public User() {
+    }
 
-    public User(String photo, String fullName, String age, String sex) {
+    public User(String photo, String fullName, int age, String sex) {
         this.photo = photo;
         this.fullName = fullName;
         this.age = age;
         this.sex = sex;
     }
 
-    public User() {
+    public String getPhoto() {
+        return photo;
     }
-
-   // public String getPhoto() {
- //       return photo;
- //   }
 
     public String getFullName() {
         return fullName;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -44,22 +37,19 @@ public class User {
         return sex;
     }
 
-    @BindingAdapter("bind:src")
-    public static void setPhoto(ImageView photoImage, String imageUrl) {
-        GlideApp.with(photoImage.getContext()).load(imageUrl).into(photoImage);
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
     public void setSex(String sex) {
         this.sex = sex;
     }
-
-
 }

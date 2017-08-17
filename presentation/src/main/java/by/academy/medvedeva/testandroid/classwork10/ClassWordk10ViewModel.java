@@ -9,9 +9,9 @@ import by.academy.medvedeva.testandroid.base.BaseViewModel;
 import by.it_academy.medvedeva.taskandroid.entity.ProfileModel;
 import by.it_academy.medvedeva.taskandroid.entity.ProfileId;
 import by.it_academy.medvedeva.taskandroid.interaction.ProfileUseCase;
+import by.it_academy.medvedeva.taskandroid.interaction.SaveProfileUseCase;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
-import io.reactivex.subjects.PublishSubject;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -30,12 +30,36 @@ public class ClassWordk10ViewModel implements BaseViewModel {
 
     private ProfileUseCase useCase = new ProfileUseCase();
 
+    private SaveProfileUseCase saveProfileUseCase = new SaveProfileUseCase();
+
     @Override
     public void init() {
     }
 
     @Override
     public void resume() {
+
+        ProfileModel profileModel = new ProfileModel();
+        profileModel.setAge(27);
+        profileModel.setName("koh");
+        profileModel.setSurname("kugs");
+        saveProfileUseCase.execute(profileModel, new DisposableObserver<Void>() {
+            @Override
+            public void onNext(@NonNull Void aVoid) {
+                Log.e("AAA", "OK");
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+                Log.e("AAA", "error");
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
 
         ProfileId profileId = new ProfileId();
         profileId.setId("123"); // это для теста, как будто у нас есть id пользователя
@@ -64,6 +88,7 @@ public class ClassWordk10ViewModel implements BaseViewModel {
 
     @Override
     public void pause() {
+
     }
 
     @Override

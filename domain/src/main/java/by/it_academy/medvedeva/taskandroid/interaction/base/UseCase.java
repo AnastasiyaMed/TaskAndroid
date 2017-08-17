@@ -15,10 +15,13 @@ import io.reactivex.schedulers.Schedulers;
 public abstract class UseCase<InParam, OutParam> {
     private Disposable disposable;
 
-    protected abstract Observable<OutParam> buildUseCase();
+    //    protected abstract Observable<OutParam> buildUseCase();
+    protected abstract Observable<OutParam> buildUseCase(InParam param);
+
 
     public ProfileModel execute(InParam param, DisposableObserver<OutParam> disposableObserver) {
-        disposable = buildUseCase()
+//        disposable = buildUseCase()
+        disposable = buildUseCase(param)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribeWith(disposableObserver);
