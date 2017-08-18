@@ -5,8 +5,6 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="user"
             type="by.academy.medvedeva.testandroid.task7.User" />
@@ -15,32 +13,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background='@{user.sex == "man" ? @color/colorPrimary : @color/colorAccent}'
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:src = "@{user.photo}"/>
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:src="@{user.photo}" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.photo}" />
+
+            android:text="@{user.fullName}"
+            android:textSize="22sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.fullName}" />
+            android:text="@{String.valueOf(user.age)}"
+            android:textSize="22sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(user.age)}" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.sex}" />
+            android:text="@{user.sex}"
+            android:textSize="22sp" />
 
     </LinearLayout>
 </layout>

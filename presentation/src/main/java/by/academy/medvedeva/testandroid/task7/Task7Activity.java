@@ -2,7 +2,9 @@ package by.academy.medvedeva.testandroid.task7;
 
 import android.app.Activity;
 import android.databinding.BindingAdapter;
+import android.databinding.BindingConversion;
 import android.databinding.DataBindingUtil;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -36,6 +38,11 @@ public class Task7Activity extends Activity {
     @BindingAdapter("bind:src")
     public static void setPhoto(ImageView photoImage, String imageUrl) {
         GlideApp.with(photoImage.getContext()).load(imageUrl).into(photoImage);
+    }
+
+    @BindingConversion
+    public static ColorDrawable convertColorToDrawable(int color) {
+        return new ColorDrawable(color);
     }
 
 }
