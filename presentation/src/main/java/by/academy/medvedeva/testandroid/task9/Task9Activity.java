@@ -16,14 +16,10 @@ import by.academy.medvedeva.testandroid.databinding.ActivityTask9Binding;
  */
 
 public class Task9Activity extends BaseActivity {
-    public static void show(Activity activity) {
-        Intent intent = new Intent(activity, Task9Activity.class);
-        activity.startActivity(intent);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Task9ViewModel viewModel = new Task9ViewModel();
+        Task9ViewModel viewModel = new Task9ViewModel(this);
         this.viewModel = viewModel;
 
         ActivityTask9Binding binding = DataBindingUtil

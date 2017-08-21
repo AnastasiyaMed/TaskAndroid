@@ -50,6 +50,12 @@ public class Classwork8ViewModel implements BaseViewModel {
 
     // Косячный из-за того, что пользователь может уйти с активити, пока продолжается работа
     // метода doInBackground
+    /**
+     * The three types used by an asynchronous task are the following:
+     Params, the type of the parameters sent to the task upon execution.
+     Progress, the type of the progress units published during the background computation.
+     Result, the type of the result of the background computation.
+     **/
     public class MyAsyncTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {

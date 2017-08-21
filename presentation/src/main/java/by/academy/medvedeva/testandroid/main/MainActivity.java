@@ -125,6 +125,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         task5Button.setOnClickListener(this);
         task6Button.setOnClickListener(this);
         task7Button.setOnClickListener(this);
+        task9Button.setOnClickListener(this);
 
         task1Button.setOnClickListener(new View.OnClickListener() {
             @Override
