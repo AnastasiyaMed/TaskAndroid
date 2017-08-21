@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.classwork10.Classwork10Activity;
+import by.academy.medvedeva.testandroid.classwork12.Classwork12Activity;
 import by.academy.medvedeva.testandroid.classwork2.Classwork2Activity;
 import by.academy.medvedeva.testandroid.classwork3.Classwork3Activity;
 import by.academy.medvedeva.testandroid.classwork4.Classwork4Activity;
@@ -24,6 +25,7 @@ import by.academy.medvedeva.testandroid.task4.Task4Activity;
 import by.academy.medvedeva.testandroid.task5.Task5Activity;
 import by.academy.medvedeva.testandroid.task6.Task6Activity;
 import by.academy.medvedeva.testandroid.task7.Task7Activity;
+import by.academy.medvedeva.testandroid.task9.Task9Activity;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
@@ -97,6 +99,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button task5Button = (Button) findViewById(R.id.task5_button);
         final Button task6Button = (Button) findViewById(R.id.task6_button);
         final Button task7Button = (Button) findViewById(R.id.task7_button);
+        final Button task9Button = (Button) findViewById(R.id.task9_button);
         final Button class2 = (Button) findViewById(R.id.class2_button);
         final Button class3 = (Button) findViewById(R.id.class3_button);
         final Button class4 = (Button) findViewById(R.id.class4_button);
@@ -105,6 +108,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button class7 = (Button) findViewById(R.id.class7_button);
         final Button class8 = (Button) findViewById(R.id.class8_button);
         final Button class10 = (Button) findViewById(R.id.class10_button);
+        final Button class12 = (Button) findViewById(R.id.class12_button);
 
         class2.setOnClickListener(this);
         class3.setOnClickListener(this);
@@ -114,6 +118,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         class7.setOnClickListener(this);
         class8.setOnClickListener(this);
         class10.setOnClickListener(this);
+        class12.setOnClickListener(this);
         task2Button.setOnClickListener(this);
         task3Button.setOnClickListener(this);
         task4Button.setOnClickListener(this);
@@ -166,6 +171,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intent = new Intent(getApplicationContext(), Classwork10Activity.class);
                 startActivity(intent);
                 break;
+            case (R.id.class12_button):
+                intent = new Intent(getApplicationContext(), Classwork12Activity.class);
+                startActivity(intent);
+                break;
             case (R.id.task1_button):
                 intent = new Intent(getApplicationContext(), Task1Activity.class);
                 startActivity(intent);
@@ -193,6 +202,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.task7_button):
                 intent = new Intent(getApplicationContext(), Task7Activity.class);
+                startActivity(intent);
+                break;
+        case (R.id.task9_button):
+                intent = new Intent(getApplicationContext(), Task9Activity.class);
                 startActivity(intent);
                 break;
         }

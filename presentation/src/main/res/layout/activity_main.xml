@@ -70,6 +70,15 @@
         android:text="@string/task7" />
 
     <Button
+        android:id="@+id/task9_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/task7_button"
+        android:layout_marginBottom="@dimen/task2_top_margin"
+        android:text="@string/task9" />
+
+    <Button
         android:id="@+id/class2_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,4 +148,13 @@
         android:layout_below="@+id/class8_button"
         android:layout_marginBottom="@dimen/task2_top_margin"
         android:text="@string/class10" />
+
+    <Button
+        android:id="@+id/class12_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/class10_button"
+        android:layout_marginBottom="@dimen/task2_top_margin"
+        android:text="@string/class12" />
 </RelativeLayout>
