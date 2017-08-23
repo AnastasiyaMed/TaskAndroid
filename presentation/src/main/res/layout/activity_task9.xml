@@ -4,17 +4,9 @@
 
     <data>
 
-        <import type="java.lang.String" />
-
-        <import type="by.academy.medvedeva.testandroid.task9.Task9ViewModel.STATE" />
-
-        <import type="android.view.View" />
-
         <variable
             name="viewModel"
             type="by.academy.medvedeva.testandroid.task9.Task9ViewModel" />
-
-
     </data>
 
 
@@ -27,7 +19,6 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 

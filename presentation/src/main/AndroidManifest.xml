@@ -33,6 +33,7 @@
         <activity android:name="by.academy.medvedeva.testandroid.classwork8.Classwork8Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork10.Classwork10Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork12.Classwork12Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork13.Classwork13Activity" />
 
         <activity
             android:name="by.academy.medvedeva.testandroid.main.MainActivity"

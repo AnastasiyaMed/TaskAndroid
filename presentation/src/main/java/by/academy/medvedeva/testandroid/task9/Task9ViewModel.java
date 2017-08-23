@@ -32,8 +32,6 @@ public class Task9ViewModel implements BaseViewModel {
     public enum STATE {PROGRESS, DATA}
 
     public Activity activity;
-    public ObservableField<String> url = new ObservableField<>("");
-    public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
     RecyclerView recyclerView;
     List<ImageEntity> items = new ArrayList<>();
 
@@ -66,7 +64,6 @@ public class Task9ViewModel implements BaseViewModel {
         Task9ViewAdapter adapter = new Task9ViewAdapter(this, items);
         recyclerView.setAdapter(adapter);
 
-        state.set(STATE.DATA);
     }
 
 
