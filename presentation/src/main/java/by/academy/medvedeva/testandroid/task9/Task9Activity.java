@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.base.BaseActivity;
 import by.academy.medvedeva.testandroid.databinding.ActivityTask9Binding;
+
+import static by.academy.medvedeva.testandroid.R.id.recyclerView;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -24,6 +28,8 @@ public class Task9Activity extends BaseActivity {
 
         ActivityTask9Binding binding = DataBindingUtil
                 .setContentView(this, R.layout.activity_task9);
+
+
 
         binding.setViewModel(viewModel);
 

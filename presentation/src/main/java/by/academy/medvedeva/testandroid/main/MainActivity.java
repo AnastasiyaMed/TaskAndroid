@@ -20,6 +20,7 @@ import by.academy.medvedeva.testandroid.classwork6.Classwork6Activity;
 import by.academy.medvedeva.testandroid.classwork7.Classwork7Activity;
 import by.academy.medvedeva.testandroid.classwork8.Classwork8Activity;
 import by.academy.medvedeva.testandroid.task1.Task1Activity;
+import by.academy.medvedeva.testandroid.task10.Task10Activity;
 import by.academy.medvedeva.testandroid.task2.Task2Activity;
 import by.academy.medvedeva.testandroid.task3.Task3Activity;
 import by.academy.medvedeva.testandroid.task4.Task4Activity;
@@ -101,6 +102,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button task6Button = (Button) findViewById(R.id.task6_button);
         final Button task7Button = (Button) findViewById(R.id.task7_button);
         final Button task9Button = (Button) findViewById(R.id.task9_button);
+        final Button task10Button = (Button) findViewById(R.id.task10_button);
         final Button class2 = (Button) findViewById(R.id.class2_button);
         final Button class3 = (Button) findViewById(R.id.class3_button);
         final Button class4 = (Button) findViewById(R.id.class4_button);
@@ -129,6 +131,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         task6Button.setOnClickListener(this);
         task7Button.setOnClickListener(this);
         task9Button.setOnClickListener(this);
+        task10Button.setOnClickListener(this);
+
 
         task1Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,6 +218,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.task9_button):
                 intent = new Intent(getApplicationContext(), Task9Activity.class);
+                startActivity(intent);
+                break;
+            case (R.id.task10_button):
+                intent = new Intent(getApplicationContext(), Task10Activity.class);
                 startActivity(intent);
                 break;
         }

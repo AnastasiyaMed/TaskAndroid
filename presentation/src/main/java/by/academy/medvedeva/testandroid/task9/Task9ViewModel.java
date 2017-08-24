@@ -8,20 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
 import by.academy.medvedeva.testandroid.databinding.ActivityTask9Binding;
 import by.academy.medvedeva.testandroid.databinding.ItemTask9Binding;
-import by.academy.medvedeva.testandroid.task6.Task6Activity;
 import by.it_academy.medvedeva.taskandroid.entity.ImageEntity;
-import by.it_academy.medvedeva.taskandroid.entity.ImageId;
 import by.it_academy.medvedeva.taskandroid.interaction.ImageUseCase;
+
 
 /**
  * Created by Medvedeva Anastasiya
@@ -29,12 +25,9 @@ import by.it_academy.medvedeva.taskandroid.interaction.ImageUseCase;
  */
 
 public class Task9ViewModel implements BaseViewModel {
-    public enum STATE {PROGRESS, DATA}
 
     public Activity activity;
-    RecyclerView recyclerView;
-    List<ImageEntity> items = new ArrayList<>();
-
+    List<ImageEntity> items;
     private ImageUseCase useCase = new ImageUseCase();
 
     public Task9ViewModel(Activity activity) {
@@ -44,39 +37,36 @@ public class Task9ViewModel implements BaseViewModel {
 
     @Override
     public void init() {
-
     }
 
     @Override
     public void release() {
-
     }
 
     @Override
     public void resume() {
-        ActivityTask9Binding binding = DataBindingUtil.setContentView(activity, R.layout.activity_task9);
-        recyclerView = binding.recyclerView;
+        items = useCase.execute();
+
+        ActivityTask9Binding binding = DataBindingUtil
+                .setContentView(activity, R.layout.activity_task9);
+        RecyclerView recyclerView = binding.recyclerView;
         int spanCount = 2;
         GridLayoutManager gridLM = new GridLayoutManager(activity, spanCount);
         recyclerView.setLayoutManager(gridLM);
-        items = useCase.execute();
-
-        Task9ViewAdapter adapter = new Task9ViewAdapter(this, items);
+        Task9ViewModel.Task9ViewAdapter adapter = new Task9ViewAdapter(this, items);
         recyclerView.setAdapter(adapter);
-
     }
 
 
     @Override
     public void pause() {
-
     }
 
-    private class Task9ViewAdapter extends RecyclerView.Adapter<Task9ViewModel.Task9ViewAdapter.Holder> {
+    class Task9ViewAdapter extends RecyclerView.Adapter<Task9ViewModel.Task9ViewAdapter.Holder> {
         Task9ViewModel viewModel = new Task9ViewModel(activity);
         List<ImageEntity> items;
 
-        public Task9ViewAdapter(Task9ViewModel viewModel, List<ImageEntity> items) {
+        Task9ViewAdapter(Task9ViewModel viewModel, List<ImageEntity> items) {
             this.viewModel = viewModel;
             this.items = items;
         }
