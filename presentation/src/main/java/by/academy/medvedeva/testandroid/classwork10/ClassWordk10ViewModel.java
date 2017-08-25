@@ -38,7 +38,6 @@ public class ClassWordk10ViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
-
         ProfileModel profileModel = new ProfileModel();
         profileModel.setAge(27);
         profileModel.setName("koh");
