@@ -14,6 +14,8 @@ public class Profile implements DataModel {
     private String surname;
     @SerializedName("age")
     private int age;
+    @SerializedName("id")
+    private int id;
 
     public String getName() {
         return name;
@@ -27,6 +29,10 @@ public class Profile implements DataModel {
         return age;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -37,5 +43,9 @@ public class Profile implements DataModel {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

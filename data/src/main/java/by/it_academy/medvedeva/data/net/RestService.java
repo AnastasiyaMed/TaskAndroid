@@ -23,7 +23,7 @@ public class RestService {
     private static final RestService instance = new RestService();
     private RestApi restApi;
 
-    public RestService() {
+    private RestService() {
         init();
     }
 
@@ -33,6 +33,7 @@ public class RestService {
 
     private void init() {
 
+       //это для логгирования
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -45,7 +46,7 @@ public class RestService {
         Gson gson = new GsonBuilder().create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.backendless.com/70E26EEB-3ACD-601D-FF12-541F239F8800/FDBEBFDC-2C3B-E045-FF00-D718E4134700/")
+                .baseUrl("https://api.backendless.com/3CC2DABE-ECC4-93CE-FF48-C699EAF1FD00/D6209607-F1CC-D406-FF1B-30F74614EA00/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(okHttpClient).build();

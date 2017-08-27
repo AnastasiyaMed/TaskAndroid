@@ -17,9 +17,6 @@ public abstract class BaseAdapter
 
     private List<Model> items = new ArrayList<>();
 
-    public BaseAdapter() {
-    }
-
     public void setItems(List<Model> newItems) {
         items.clear();
         items.addAll(newItems);

@@ -8,7 +8,7 @@ import java.util.List;
 
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
 import by.it_academy.medvedeva.taskandroid.entity.ProfileModel;
-import by.it_academy.medvedeva.taskandroid.interaction.cw12.GetProfoleListUseCase;
+import by.it_academy.medvedeva.taskandroid.interaction.GetProfileListUseCase;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
 
@@ -19,19 +19,20 @@ import io.reactivex.observers.DisposableObserver;
 
 public class Classwork12ViewModel implements BaseViewModel {
 
-    private Activity activity;
-
     public enum STATE {PROGRESS, DATA}
 
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
+
+    private Activity activity;
+
 
     public Classwork12ViewModel(Activity activity) {
         this.activity = activity;
     }
 
-    private GetProfoleListUseCase getProfoleListUseCase = new GetProfoleListUseCase();
+    private GetProfileListUseCase getProfileListUseCase = new GetProfileListUseCase();
 
-    public ProfileAdapter adapter = new ProfileAdapter(activity);
+    public ProfileAdapter adapter = new ProfileAdapter();
 
     @Override
     public void init() {
@@ -43,10 +44,11 @@ public class Classwork12ViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
-        getProfoleListUseCase.execute(null, new DisposableObserver<List<? extends ProfileModel>>() {
+        getProfileListUseCase.execute(null, new DisposableObserver<List<ProfileModel>>() {
             @Override
-            public void onNext(@NonNull List<? extends ProfileModel> profileModels) {
-
+            public void onNext(@NonNull List<ProfileModel> profileModels) {
+                adapter.setItems(profileModels);
+                state.set(STATE.DATA);
                 Log.e("AAAA items =" + profileModels.size(), "");
             }
 
@@ -64,6 +66,6 @@ public class Classwork12ViewModel implements BaseViewModel {
 
     @Override
     public void pause() {
-
+        getProfileListUseCase.dispose();
     }
 }

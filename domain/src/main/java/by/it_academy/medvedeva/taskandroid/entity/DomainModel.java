@@ -5,5 +5,5 @@ package by.it_academy.medvedeva.taskandroid.entity;
  * on 14.08.2017.
  */
 
-public interface DomainModel {
+interface DomainModel {
 }

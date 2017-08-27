@@ -15,9 +15,9 @@ import by.it_academy.medvedeva.taskandroid.entity.ProfileModel;
 public class ProfileItemViewHolder extends BaseItemViewHolder<ProfileModel,
         ProfileItemViewModel, ItemProfileBinding> {
 
-    public ProfileItemViewHolder(ItemProfileBinding dataBinding,
-                                 ProfileItemViewModel viewModel) {
-        super(dataBinding, viewModel);
+    public ProfileItemViewHolder(ItemProfileBinding binding, ProfileItemViewModel viewModel) {
+        super(binding, viewModel);
+        binding.setViewModel(viewModel);
     }
 
     public static ProfileItemViewHolder create(LayoutInflater inflater, ViewGroup parent,
