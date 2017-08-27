@@ -6,6 +6,7 @@ package by.it_academy.medvedeva.taskandroid.interaction.base;
  */
 
 public abstract class UseCaseTask9<InParam, OutParam> {
+
     protected abstract OutParam buildUseCase();
 
     public OutParam execute() {
