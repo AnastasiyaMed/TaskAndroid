@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import by.it_academy.medvedeva.taskandroid.entity.ImageEntity;
-import by.it_academy.medvedeva.taskandroid.entity.ImageId;
 import by.it_academy.medvedeva.taskandroid.interaction.base.UseCaseTask9;
 
 /**

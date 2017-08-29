@@ -25,8 +25,8 @@ public class GetProfileListUseCase extends UseCase<ProfileId, List<ProfileModel>
             @Override
             public List<ProfileModel> apply(@NonNull List<Profile> profiles) throws Exception {
                 List<ProfileModel> list = new ArrayList<>();
-                for(Profile profile: profiles) {
-                    list.add(convert(profile));
+                for (Profile profile : profiles) {
+                    list.add(GetProfileListUseCase.this.convert(profile));
                 }
                 return list;
             }

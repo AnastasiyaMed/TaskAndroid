@@ -88,6 +88,15 @@
         android:text="@string/task10" />
 
     <Button
+        android:id="@+id/task11_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/task10_button"
+        android:layout_marginBottom="@dimen/task2_top_margin"
+        android:text="@string/task11" />
+
+    <Button
         android:id="@+id/class2_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

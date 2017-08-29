@@ -4,7 +4,8 @@ import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
 import android.widget.ImageView;
 
-import by.academy.medvedeva.testandroid.GlideApp;
+import com.bumptech.glide.Glide;
+
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
 
 /**
@@ -13,7 +14,7 @@ import by.academy.medvedeva.testandroid.base.BaseViewModel;
  */
 
 public class ImageViewModel implements BaseViewModel {
-     private ObservableField<String> url;
+    private ObservableField<String> url;
 
     public ObservableField<String> getUrl() {
         return url;
@@ -48,6 +49,6 @@ public class ImageViewModel implements BaseViewModel {
 
     @BindingAdapter("bind:src")
     public static void setPhoto(ImageView photoImage, String imageUrl) {
-        GlideApp.with(photoImage.getContext()).load(imageUrl).into(photoImage);
+        Glide.with(photoImage.getContext()).load(imageUrl).into(photoImage);
     }
 }

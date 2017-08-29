@@ -1,7 +1,5 @@
 package by.it_academy.medvedeva.taskandroid.entity;
 
-import by.it_academy.medvedeva.data.entity.DataModel;
-
 /**
  * Created by Medvedeva Anastasiya
  * on 14.08.2017.
@@ -12,6 +10,15 @@ public class ProfileModel implements DomainModel {
     private String name;
     private String surname;
     private int age;
+    private ProfileId id;
+
+    public ProfileId getId() {
+        return id;
+    }
+
+    public void setId(ProfileId id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
