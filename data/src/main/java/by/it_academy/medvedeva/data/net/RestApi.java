@@ -7,6 +7,7 @@ import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -20,8 +21,10 @@ public interface RestApi {
 //}
 
     @GET("data/Profiles")
-        // если id убрать, вернет всех
     Observable<List<Profile>> getProfiles();
+
+    @GET("data/Profiles/{id}")
+    Observable<Profile> getProfile(@Path("id") int id);
 
 
     @POST("data/Profiles")

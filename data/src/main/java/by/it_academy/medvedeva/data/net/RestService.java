@@ -33,7 +33,7 @@ public class RestService {
 
     private void init() {
 
-       //это для логгирования
+        //это для логгирования
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -58,7 +58,11 @@ public class RestService {
         return restApi.getProfiles();
     }
 
-    public Observable<Void> saveProfile (Profile profile) {
+    public Observable<Profile> getProfile(int id) {
+        return restApi.getProfile(id);
+    }
+
+    public Observable<Void> saveProfile(Profile profile) {
         return restApi.saveProfile(profile);
     }
 }

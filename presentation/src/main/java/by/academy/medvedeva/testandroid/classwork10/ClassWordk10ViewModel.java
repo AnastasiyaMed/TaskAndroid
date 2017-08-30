@@ -61,7 +61,7 @@ public class ClassWordk10ViewModel implements BaseViewModel {
 
 
         ProfileId profileId = new ProfileId();
-        profileId.setId("123"); // это для теста, как будто у нас есть id пользователя
+        profileId.setId(123); // это для теста, как будто у нас есть id пользователя
         useCase.execute(profileId, new DisposableObserver<ProfileModel>() {
             @Override
             public void onNext(@NonNull ProfileModel profile) {

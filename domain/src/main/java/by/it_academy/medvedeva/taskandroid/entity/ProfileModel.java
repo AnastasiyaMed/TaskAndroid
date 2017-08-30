@@ -10,13 +10,13 @@ public class ProfileModel implements DomainModel {
     private String name;
     private String surname;
     private int age;
-    private ProfileId id;
+    private int id;
 
-    public ProfileId getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(ProfileId id) {
+    public void setId(int id) {
         this.id = id;
     }
 

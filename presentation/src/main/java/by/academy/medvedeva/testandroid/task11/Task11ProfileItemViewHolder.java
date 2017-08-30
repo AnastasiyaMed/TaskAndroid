@@ -23,6 +23,7 @@ public class Task11ProfileItemViewHolder extends BaseItemViewHolder<ProfileModel
     public static Task11ProfileItemViewHolder create(LayoutInflater inflater, ViewGroup parent,
                                                      Task11ProfileItemViewModel viewModel) {
         ItemProfileTask11Binding binding = ItemProfileTask11Binding.inflate(inflater, parent, false);
+        viewModel.setContext(parent.getContext());
         return new Task11ProfileItemViewHolder(binding, viewModel);
     }
 }
