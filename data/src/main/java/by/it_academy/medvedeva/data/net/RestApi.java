@@ -8,6 +8,9 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
+import retrofit2.http.QueryName;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -23,8 +26,8 @@ public interface RestApi {
     @GET("data/Profiles")
     Observable<List<Profile>> getProfiles();
 
-    @GET("data/Profiles/{id}")
-    Observable<Profile> getProfile(@Path("id") int id);
+    @GET("data/Profiles")
+    Observable<Profile> getProfile(@Query("where") String id);
 
 
     @POST("data/Profiles")

@@ -39,6 +39,7 @@ public class GetProfileListUseCase extends UseCase<ProfileId, List<ProfileModel>
         profileModel.setName(dataModel.getName());
         profileModel.setSurname(dataModel.getSurname());
         profileModel.setAge(dataModel.getAge());
+        profileModel.setId(dataModel.getId());
         return profileModel;
     }
 }

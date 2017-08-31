@@ -59,7 +59,7 @@ public class RestService {
     }
 
     public Observable<Profile> getProfile(int id) {
-        return restApi.getProfile(id);
+        return restApi.getProfile("id="+id);
     }
 
     public Observable<Void> saveProfile(Profile profile) {
