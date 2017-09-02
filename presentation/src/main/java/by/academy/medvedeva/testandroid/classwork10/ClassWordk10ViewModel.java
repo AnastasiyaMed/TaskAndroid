@@ -42,9 +42,9 @@ public class ClassWordk10ViewModel implements BaseViewModel {
         profileModel.setAge(27);
         profileModel.setName("koh");
         profileModel.setSurname("kugs");
-        saveProfileUseCase.execute(profileModel, new DisposableObserver<Void>() {
+        saveProfileUseCase.execute(profileModel, new DisposableObserver<String>() {
             @Override
-            public void onNext(@NonNull Void aVoid) {
+            public void onNext(@NonNull String aVoid) {
                 Log.e("AAA", "OK");
             }
 

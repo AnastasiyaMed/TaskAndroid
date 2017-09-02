@@ -7,6 +7,7 @@ import io.reactivex.Observable;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 /**
@@ -24,8 +25,8 @@ public interface RestApi {
     Observable<List<Profile>> getProfile(@Query("where") String id);
 
 
-    @POST("data/Profiles")
-    Observable<Void> saveProfile(@Body Profile profile);
+    @PUT("data/bulk/Profiles")
+    Observable<Void> saveProfile(@Query(value = "where", encoded = true) String id, @Body Profile profile);
 }
 
 

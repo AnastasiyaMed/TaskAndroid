@@ -18,7 +18,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="24dp"
             android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}" />
 
         <ProgressBar

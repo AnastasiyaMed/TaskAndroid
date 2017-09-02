@@ -34,4 +34,6 @@
     <string name="open2">Open Fragment 2</string>
     <string name="task10">Task 10</string>
     <string name="task11">Task 11</string>
+    <string name="Edit">Edit</string>
+    <string name="Save">Save</string>
 </resources>

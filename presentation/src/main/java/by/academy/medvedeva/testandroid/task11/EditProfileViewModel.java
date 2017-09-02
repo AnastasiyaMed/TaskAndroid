@@ -1,8 +1,6 @@
 package by.academy.medvedeva.testandroid.task11;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 import android.util.Log;
@@ -10,30 +8,31 @@ import android.util.Log;
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
 import by.it_academy.medvedeva.taskandroid.entity.ProfileModel;
 import by.it_academy.medvedeva.taskandroid.interaction.GetProfileUseCase;
+import by.it_academy.medvedeva.taskandroid.interaction.SaveProfileUseCase;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
 
 /**
  * Created by Medvedeva Anastasiya
- * on 30.08.2017.
+ * on 01.09.2017.
  */
 
-public class DetailsViewModel implements BaseViewModel {
+public class EditProfileViewModel implements BaseViewModel {
     public enum STATE {PROGRESS, DATA}
 
     public Activity activity;
     public ObservableField<String> name = new ObservableField<>("");
     public ObservableField<String> surname = new ObservableField<>("");
-    public ObservableInt age = new ObservableInt(0);
+    public ObservableField<String> age = new ObservableField<>("");
     public ObservableInt id = new ObservableInt(0);
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
 
-    DetailsViewModel(Activity activity) {
+    public EditProfileViewModel(Activity activity) {
         this.activity = activity;
     }
 
     private GetProfileUseCase getProfileUseCase = new GetProfileUseCase();
-
+    private SaveProfileUseCase saveProfileUseCase = new SaveProfileUseCase();
 
     @Override
     public void init() {
@@ -47,15 +46,14 @@ public class DetailsViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
-        final int profileId = activity.getIntent().getIntExtra("ID", 0);
+        int profileId = activity.getIntent().getIntExtra("ID", 0);
         getProfileUseCase.execute(profileId, new DisposableObserver<ProfileModel>() {
             @Override
             public void onNext(@NonNull ProfileModel profile) {
                 name.set(profile.getName());
                 surname.set(profile.getSurname());
-                age.set(profile.getAge());
+                age.set(String.valueOf(profile.getAge()));
                 id.set(profile.getId());
-
                 state.set(STATE.DATA);
             }
 
@@ -69,16 +67,36 @@ public class DetailsViewModel implements BaseViewModel {
 
             }
         });
+
+    }
+
+    public void onSuperButtonClick() {
+        ProfileModel profileModel = new ProfileModel();
+        profileModel.setAge(Integer.valueOf(age.get()));
+        profileModel.setId(id.get());
+        profileModel.setName(name.get());
+        profileModel.setSurname(surname.get());
+        saveProfileUseCase.execute(profileModel, new DisposableObserver<String>() {
+            @Override
+            public void onNext(@NonNull String string) {
+                Log.e("AAA", "OK");
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+                Log.e("AAA", e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
     }
 
     @Override
     public void pause() {
 
-    }
-
-    public void onSuperButtonClick(Context context) {
-        Intent intent = new Intent(context, EditProfileActivity.class);
-        intent.putExtra("ID", id.get());
-        context.startActivity(intent);
     }
 }

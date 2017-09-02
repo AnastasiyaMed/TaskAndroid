@@ -22,8 +22,14 @@ public class GetProfileUseCase extends UseCase<Integer, ProfileModel> {
         return RestService.getInstance().getProfile(param).map(new Function<List<Profile>, ProfileModel>() {
             @Override
             public ProfileModel apply(@NonNull List<Profile> profileList) throws Exception {
-                Profile profileData = profileList.get(0);
-                return convert(profileData);
+                if (profileList.size() != 0) {
+                    Profile profileData = profileList.get(0);
+                    return convert(profileData);
+                } else {
+                    ProfileModel profileModel = new ProfileModel();
+                    profileModel.setName("Профиль не найден");
+                    return profileModel;
+                }
             }
         });
 
