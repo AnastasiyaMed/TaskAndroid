@@ -43,6 +43,14 @@
             android:textSize="30sp"
             android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@{viewModel.updatingProfile}"
+            android:textSize="30sp"
+            android:visibility="@{viewModel.updatingProfile == null ? View.GONE : View.VISIBLE}" />
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,6 +1,8 @@
 package by.academy.medvedeva.testandroid.task11;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 import android.util.Log;
@@ -27,7 +29,7 @@ public class EditProfileViewModel implements BaseViewModel {
     public ObservableInt id = new ObservableInt(0);
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
 
-    public EditProfileViewModel(Activity activity) {
+    EditProfileViewModel(Activity activity) {
         this.activity = activity;
     }
 
@@ -70,7 +72,7 @@ public class EditProfileViewModel implements BaseViewModel {
 
     }
 
-    public void onSuperButtonClick() {
+    public void onSuperButtonClick(final Context context) {
         ProfileModel profileModel = new ProfileModel();
         profileModel.setAge(Integer.valueOf(age.get()));
         profileModel.setId(id.get());
@@ -80,6 +82,10 @@ public class EditProfileViewModel implements BaseViewModel {
             @Override
             public void onNext(@NonNull String string) {
                 Log.e("AAA", "OK");
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra("UPDATE_SUCCESS", "Profile updated");
+                intent.putExtra("ID", id.get());
+                context.startActivity(intent);
             }
 
             @Override

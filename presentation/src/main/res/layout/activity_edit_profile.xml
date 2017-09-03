@@ -57,7 +57,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:text="@string/Save"
-            android:onClick="@{() -> viewModel.onSuperButtonClick()}"/>
+            android:onClick="@{() -> viewModel.onSuperButtonClick(context)}"/>
 
     </LinearLayout>
 
