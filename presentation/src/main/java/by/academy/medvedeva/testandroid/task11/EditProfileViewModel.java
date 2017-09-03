@@ -26,7 +26,7 @@ public class EditProfileViewModel implements BaseViewModel {
     public ObservableField<String> name = new ObservableField<>("");
     public ObservableField<String> surname = new ObservableField<>("");
     public ObservableField<String> age = new ObservableField<>("");
-    public ObservableInt id = new ObservableInt(0);
+    public ObservableField<String> id = new ObservableField<>("");
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
 
     EditProfileViewModel(Activity activity) {
@@ -48,7 +48,7 @@ public class EditProfileViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
-        int profileId = activity.getIntent().getIntExtra("ID", 0);
+        final String profileId = activity.getIntent().getStringExtra("ID");
         getProfileUseCase.execute(profileId, new DisposableObserver<ProfileModel>() {
             @Override
             public void onNext(@NonNull ProfileModel profile) {

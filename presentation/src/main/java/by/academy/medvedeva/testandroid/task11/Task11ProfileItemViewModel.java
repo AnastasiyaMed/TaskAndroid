@@ -16,7 +16,7 @@ import by.it_academy.medvedeva.taskandroid.entity.ProfileModel;
 public class Task11ProfileItemViewModel extends BaseItemViewModel<ProfileModel> {
     public ObservableField<String> name = new ObservableField<>("");
     private Context context;
-    private int id;
+    private String id;
 
     @Override
     public void setItem(ProfileModel item, int position) {

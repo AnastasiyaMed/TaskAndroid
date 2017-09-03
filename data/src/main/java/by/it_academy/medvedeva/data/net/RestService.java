@@ -58,11 +58,19 @@ public class RestService {
         return restApi.getProfiles();
     }
 
-    public Observable<List<Profile>> getProfile(int id) {
-        return restApi.getProfile("id=".concat(String.valueOf(id)));
+//    public Observable<List<Profile>> getProfile(int id) {
+//        return restApi.getProfile("id=".concat(String.valueOf(id)));
+//    }
+
+    public Observable<Profile> getProfile(String id) {
+        return restApi.getProfile(id);
     }
 
+//    public Observable<Void> saveProfile(Profile profile) {
+//        return restApi.saveProfile("id=".concat(String.valueOf(profile.getId())), profile);
+//    }
+
     public Observable<Void> saveProfile(Profile profile) {
-        return restApi.saveProfile("id=".concat(String.valueOf(profile.getId())), profile);
+        return restApi.saveProfile(profile.getId(), profile);
     }
 }

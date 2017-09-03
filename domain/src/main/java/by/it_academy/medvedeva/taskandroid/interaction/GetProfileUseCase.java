@@ -1,7 +1,5 @@
 package by.it_academy.medvedeva.taskandroid.interaction;
 
-import java.util.List;
-
 import by.it_academy.medvedeva.data.entity.Profile;
 import by.it_academy.medvedeva.data.net.RestService;
 import by.it_academy.medvedeva.taskandroid.entity.ProfileModel;
@@ -15,16 +13,15 @@ import io.reactivex.functions.Function;
  * on 27.08.2017.
  */
 
-public class GetProfileUseCase extends UseCase<Integer, ProfileModel> {
+public class GetProfileUseCase extends UseCase<String, ProfileModel> {
 
     @Override
-    protected Observable<ProfileModel> buildUseCase(Integer param) {
-        return RestService.getInstance().getProfile(param).map(new Function<List<Profile>, ProfileModel>() {
+    protected Observable<ProfileModel> buildUseCase(String param) {
+        return RestService.getInstance().getProfile(param).map(new Function<Profile, ProfileModel>() {
             @Override
-            public ProfileModel apply(@NonNull List<Profile> profileList) throws Exception {
-                if (profileList.size() != 0) {
-                    Profile profileData = profileList.get(0);
-                    return convert(profileData);
+            public ProfileModel apply(@NonNull Profile profile) throws Exception {
+                if (profile != null) {
+                    return convert(profile);
                 } else {
                     ProfileModel profileModel = new ProfileModel();
                     profileModel.setName("Профиль не найден");

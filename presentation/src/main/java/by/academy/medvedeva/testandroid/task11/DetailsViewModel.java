@@ -26,7 +26,7 @@ public class DetailsViewModel implements BaseViewModel {
     public ObservableField<String> surname = new ObservableField<>("");
     public ObservableField<String> updatingProfile = new ObservableField<>("");
     public ObservableInt age = new ObservableInt(0);
-    public ObservableInt id = new ObservableInt(0);
+    public ObservableField<String> id = new ObservableField<>("");
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
 
     DetailsViewModel(Activity activity) {
@@ -50,7 +50,7 @@ public class DetailsViewModel implements BaseViewModel {
     public void resume() {
         updatingProfile.set(activity.getIntent().getStringExtra("UPDATE_SUCCESS"));
 
-        final int profileId = activity.getIntent().getIntExtra("ID", 0);
+        final String profileId = activity.getIntent().getStringExtra("ID");
         getProfileUseCase.execute(profileId, new DisposableObserver<ProfileModel>() {
             @Override
             public void onNext(@NonNull ProfileModel profile) {
