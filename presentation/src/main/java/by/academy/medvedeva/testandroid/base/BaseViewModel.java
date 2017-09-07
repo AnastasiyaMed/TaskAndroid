@@ -14,4 +14,8 @@ public interface BaseViewModel {
      void resume();
 
      void pause();
+
+    void onCreateView();
+
+    void onViewCreated();
 }
