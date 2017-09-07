@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.ObservableField;
-import android.databinding.ObservableInt;
 import android.util.Log;
 
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
@@ -103,6 +102,9 @@ public class EditProfileViewModel implements BaseViewModel {
 
     @Override
     public void pause() {
-
+        if (saveProfileUseCase != null) {
+            saveProfileUseCase.dispose();
+        }
+        getProfileUseCase.dispose();
     }
 }

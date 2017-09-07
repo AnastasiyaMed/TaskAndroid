@@ -8,10 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.classwork10.Classwork10Activity;
 import by.academy.medvedeva.testandroid.classwork12.Classwork12Activity;
 import by.academy.medvedeva.testandroid.classwork13.Classwork13Activity;
+import by.academy.medvedeva.testandroid.classwork14.ClassWork14Activity;
 import by.academy.medvedeva.testandroid.classwork2.Classwork2Activity;
 import by.academy.medvedeva.testandroid.classwork3.Classwork3Activity;
 import by.academy.medvedeva.testandroid.classwork4.Classwork4Activity;
@@ -42,6 +45,8 @@ import io.reactivex.subjects.ReplaySubject;
  */
 
 public class MainActivity extends Activity implements View.OnClickListener {
+    @BindView(R.id.class14_button)
+    Button class14;
 
 
     public PublishSubject<String> publishSubject = PublishSubject.create();
@@ -59,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ButterKnife.bind(this);
         // посылаем информацию в паблишсабжэект
         // эти данные мы не получили, потому что не подписались на них еще
         publishSubject.onNext("1");
@@ -126,6 +131,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         class10.setOnClickListener(this);
         class12.setOnClickListener(this);
         class13.setOnClickListener(this);
+        class14.setOnClickListener(this);
         task2Button.setOnClickListener(this);
         task3Button.setOnClickListener(this);
         task4Button.setOnClickListener(this);
@@ -188,6 +194,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.class13_button):
                 intent = new Intent(getApplicationContext(), Classwork13Activity.class);
+                startActivity(intent);
+                break;
+            case (R.id.class14_button):
+                intent = new Intent(getApplicationContext(), ClassWork14Activity.class);
                 startActivity(intent);
                 break;
             case (R.id.task1_button):

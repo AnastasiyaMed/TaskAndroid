@@ -36,4 +36,7 @@
     <string name="task11">Task 11</string>
     <string name="Edit">Edit</string>
     <string name="Save">Save</string>
+    <string name="info">info</string>
+    <string name="class14">ClassWork 14</string>
+    <string name="empty_data">data is empty</string>
 </resources>

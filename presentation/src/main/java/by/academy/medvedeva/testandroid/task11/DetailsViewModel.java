@@ -76,7 +76,7 @@ public class DetailsViewModel implements BaseViewModel {
 
     @Override
     public void pause() {
-
+        getProfileUseCase.dispose();
     }
 
     public void onSuperButtonClick(Context context) {
