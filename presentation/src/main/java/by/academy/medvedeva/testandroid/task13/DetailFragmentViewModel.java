@@ -22,13 +22,10 @@ public class DetailFragmentViewModel implements BaseFragmentViewModel {
     public ObservableInt age = new ObservableInt(0);
     public ObservableField<String> id = new ObservableField<>("");
     public ObservableField<STATE> state = new ObservableField<>(STATE.DATA);
-    String profileId;
 
     DetailFragmentViewModel(Fragment fragment) {
         this.fragment = fragment;
     }
-
-
 
 
     @Override
@@ -38,19 +35,18 @@ public class DetailFragmentViewModel implements BaseFragmentViewModel {
 
     @Override
     public void onCreateView() {
-        updatingProfile.set(fragment.getArguments().getString("UPDATE_SUCCESS"));
-        profileId = fragment.getArguments().getString("ID");
+    }
+
+    @Override
+    public void onViewCreated() {
         Bundle bundle = fragment.getArguments();
         if (bundle != null) {
             name.set(bundle.getString("NAME"));
             surname.set(bundle.getString("SURNAME"));
             age.set(bundle.getInt("AGE"));
-            id.set(profileId);
+            id.set(bundle.getString("ID"));
+            updatingProfile.set(bundle.getString("UPDATE_SUCCESS"));
         }
-    }
-
-    @Override
-    public void onViewCreated() {
     }
 
     @Override

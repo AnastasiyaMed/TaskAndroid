@@ -9,33 +9,26 @@ import android.view.ViewGroup;
 
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.base.BaseFragment;
-import by.academy.medvedeva.testandroid.base.BaseFragmentViewModel;
-import by.academy.medvedeva.testandroid.databinding.FragmentDetails13Binding;
+import by.academy.medvedeva.testandroid.databinding.FragmentErrorBinding;
 
 /**
  * Created by Medvedeva Anastasiya
- * on 10.09.2017.
+ * on 11.09.2017.
  */
 
-public class DetailFragment extends BaseFragment {
+public class ErrorFragment extends BaseFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        this.viewModel = new DetailFragmentViewModel(this);
+        this.viewModel = new ErrorViewModel(this);
         super.onCreate(savedInstanceState);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        FragmentDetails13Binding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details13, container, false);
-        binding.setViewModel((DetailFragmentViewModel)viewModel);
+        FragmentErrorBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_error, container, false);
+        binding.setViewModel((ErrorViewModel) viewModel);
         return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 }

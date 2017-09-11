@@ -21,6 +21,7 @@ import io.reactivex.observers.DisposableObserver;
 
 public class DetailsViewModel implements BaseViewModel {
     public enum STATE {PROGRESS, DATA}
+
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
     private String profileId;
     private String name;
@@ -65,6 +66,8 @@ public class DetailsViewModel implements BaseViewModel {
                 bundle.putString("NAME", name);
                 bundle.putString("SURNAME", surname);
                 bundle.putInt("AGE", age);
+                bundle.putString("ID", profileId);
+                bundle.putString("UPDATE_SUCCESS", activity.getIntent().getStringExtra("UPDATE_SUCCESS"));
                 fragment.setArguments(bundle);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
@@ -72,7 +75,11 @@ public class DetailsViewModel implements BaseViewModel {
 
             @Override
             public void onError(@NonNull Throwable e) {
-
+                ErrorFragment fragment = new ErrorFragment();
+                FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, fragment, ErrorFragment.class.getName());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
 
             @Override
