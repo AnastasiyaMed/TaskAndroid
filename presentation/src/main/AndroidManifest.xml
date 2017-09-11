@@ -26,8 +26,12 @@
         <activity android:name="by.academy.medvedeva.testandroid.task9.Task9Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.task10.Task10Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.task11.Task11Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task13.Task13Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.task11.DetailsActivity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task13.DetailsActivity" />
+
         <activity android:name="by.academy.medvedeva.testandroid.task11.EditProfileActivity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task13.EditProfileActivity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork2.Classwork2Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork3.Classwork3Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork4.Classwork4Activity" />
@@ -39,6 +43,7 @@
         <activity android:name="by.academy.medvedeva.testandroid.classwork12.Classwork12Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork13.Classwork13Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork14.ClassWork14Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork16.Classwork16Activity" />
 
         <activity
             android:name="by.academy.medvedeva.testandroid.main.MainActivity"

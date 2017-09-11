@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="by.academy.medvedeva.testandroid.task13.EditProfileViewModel.STATE" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="by.academy.medvedeva.testandroid.task13.EditProfileViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@{viewModel.name}"
+            android:text="@={viewModel.name}"
+            android:textSize="30sp"
+            android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@{viewModel.surname}"
+            android:text="@={viewModel.surname}"
+            android:textSize="30sp"
+            android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@{String.valueOf(viewModel.age)}"
+            android:text="@={viewModel.age}"
+            android:textSize="30sp"
+            android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}"
+            android:inputType="numberSigned" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.state == STATE.PROGRESS ? View.VISIBLE : View.GONE}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:text="@string/Save"
+            android:onClick="@{() -> viewModel.onSuperButtonClick(context)}"/>
+
+    </LinearLayout>
+
+</layout>

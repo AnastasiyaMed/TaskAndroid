@@ -51,7 +51,7 @@ public class Classwork13Activity extends FragmentActivity {
         // fragment.getClass().getName() вместо уникального флага для фрагмента
         fragmentTransaction.replace(R.id.container, fragment, fragment.getClass().getName());
        // fragmentTransaction.addToBackStack(null); добавляет фрагмент в историю
-        if (addToBackStack)fragmentTransaction.addToBackStack(null);
+        if (addToBackStack) {fragmentTransaction.addToBackStack(null);}
         fragmentTransaction.commit();
     }
 }

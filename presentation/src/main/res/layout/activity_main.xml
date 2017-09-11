@@ -101,6 +101,15 @@
             android:text="@string/task11" />
 
         <Button
+            android:id="@+id/task13_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/task11_button"
+            android:layout_marginBottom="@dimen/task2_top_margin"
+            android:text="@string/task13" />
+
+        <Button
             android:id="@+id/class2_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -197,5 +206,14 @@
             android:layout_below="@+id/class13_button"
             android:layout_marginBottom="@dimen/task2_top_margin"
             android:text="@string/class14" />
+
+        <Button
+            android:id="@+id/class16_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/class14_button"
+            android:layout_marginBottom="@dimen/task2_top_margin"
+            android:text="@string/class16" />
     </RelativeLayout>
 </ScrollView>

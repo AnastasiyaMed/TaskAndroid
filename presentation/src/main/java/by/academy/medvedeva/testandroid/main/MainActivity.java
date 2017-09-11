@@ -15,6 +15,7 @@ import by.academy.medvedeva.testandroid.classwork10.Classwork10Activity;
 import by.academy.medvedeva.testandroid.classwork12.Classwork12Activity;
 import by.academy.medvedeva.testandroid.classwork13.Classwork13Activity;
 import by.academy.medvedeva.testandroid.classwork14.ClassWork14Activity;
+import by.academy.medvedeva.testandroid.classwork16.Classwork16Activity;
 import by.academy.medvedeva.testandroid.classwork2.Classwork2Activity;
 import by.academy.medvedeva.testandroid.classwork3.Classwork3Activity;
 import by.academy.medvedeva.testandroid.classwork4.Classwork4Activity;
@@ -25,6 +26,7 @@ import by.academy.medvedeva.testandroid.classwork8.Classwork8Activity;
 import by.academy.medvedeva.testandroid.task1.Task1Activity;
 import by.academy.medvedeva.testandroid.task10.Task10Activity;
 import by.academy.medvedeva.testandroid.task11.Task11Activity;
+import by.academy.medvedeva.testandroid.task13.Task13Activity;
 import by.academy.medvedeva.testandroid.task2.Task2Activity;
 import by.academy.medvedeva.testandroid.task3.Task3Activity;
 import by.academy.medvedeva.testandroid.task4.Task4Activity;
@@ -110,6 +112,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button task9Button = (Button) findViewById(R.id.task9_button);
         final Button task10Button = (Button) findViewById(R.id.task10_button);
         final Button task11Button = (Button) findViewById(R.id.task11_button);
+        final Button task13Button = (Button) findViewById(R.id.task13_button);
         final Button class2 = (Button) findViewById(R.id.class2_button);
         final Button class3 = (Button) findViewById(R.id.class3_button);
         final Button class4 = (Button) findViewById(R.id.class4_button);
@@ -120,6 +123,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button class10 = (Button) findViewById(R.id.class10_button);
         final Button class12 = (Button) findViewById(R.id.class12_button);
         final Button class13 = (Button) findViewById(R.id.class13_button);
+        final Button class16 = (Button) findViewById(R.id.class16_button);
 
         class2.setOnClickListener(this);
         class3.setOnClickListener(this);
@@ -132,6 +136,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         class12.setOnClickListener(this);
         class13.setOnClickListener(this);
         class14.setOnClickListener(this);
+        class16.setOnClickListener(this);
         task2Button.setOnClickListener(this);
         task3Button.setOnClickListener(this);
         task4Button.setOnClickListener(this);
@@ -141,6 +146,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         task9Button.setOnClickListener(this);
         task10Button.setOnClickListener(this);
         task11Button.setOnClickListener(this);
+        task13Button.setOnClickListener(this);
 
 
         task1Button.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +206,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 intent = new Intent(getApplicationContext(), ClassWork14Activity.class);
                 startActivity(intent);
                 break;
+            case (R.id.class16_button):
+                intent = new Intent(getApplicationContext(), Classwork16Activity.class);
+                startActivity(intent);
+                break;
             case (R.id.task1_button):
                 intent = new Intent(getApplicationContext(), Task1Activity.class);
                 startActivity(intent);
@@ -239,6 +249,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.task11_button):
                 intent = new Intent(getApplicationContext(), Task11Activity.class);
+                startActivity(intent);
+                break;
+            case (R.id.task13_button):
+                intent = new Intent(getApplicationContext(), Task13Activity.class);
                 startActivity(intent);
                 break;
         }

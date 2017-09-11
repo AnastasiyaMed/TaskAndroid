@@ -7,38 +7,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import by.academy.medvedeva.testandroid.R;
-
-
 /**
  * Created by Medvedeva Anastasiya
- * on 07.09.2017.
+ * on 09.09.2017.
  */
 
 abstract public class BaseFragment extends Fragment {
-
-    protected BaseViewModel viewModel;
+    protected BaseFragmentViewModel viewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         viewModel.init();
+        super.onCreate(savedInstanceState);
+
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup
-            container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         viewModel.onCreateView();
-        // Здесь не желательно вешать листенеры на какие-то элементы фрагмента, потому что на момент вызова этого метода, экран еще не создан
-        return inflater.inflate(R.layout.fragment_classwork13, container, false);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModel.onViewCreated();
-        // Всю логику сюда!!!
     }
 
     @Override
