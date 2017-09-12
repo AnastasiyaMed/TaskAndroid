@@ -4,12 +4,18 @@ import android.app.Application;
 
 import com.squareup.leakcanary.LeakCanary;
 
+import by.academy.medvedeva.testandroid.datainjection.AppComponent;
+import by.academy.medvedeva.testandroid.datainjection.AppModule;
+import by.academy.medvedeva.testandroid.datainjection.DaggerAppComponent;
+
 /**
  * Created by Medvedeva Anastasiya
  * on 31.07.2017.
  */
 
 public class LeakCanaryTool extends Application {
+
+    public static AppComponent appComponent;
 
 
     @Override
@@ -22,6 +28,10 @@ public class LeakCanaryTool extends Application {
         }
         LeakCanary.install(this);
         // Normal app init code...
+
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule())
+                .build();
     }
 }
 

@@ -21,6 +21,8 @@ public class Task14Activity extends BaseActivity {
         this.viewModel = viewModel;
         ActivityTask14Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_task14);
         binding.setViewModel(viewModel);
+        binding.spinner.setAdapter(viewModel.adapter);
+        binding.spinner.setSelection(1);
         super.onCreate(savedInstanceState);
     }
 }

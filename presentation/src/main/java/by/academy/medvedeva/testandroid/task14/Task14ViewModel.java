@@ -1,10 +1,18 @@
 package by.academy.medvedeva.testandroid.task14;
 
 import android.app.Activity;
+import android.databinding.ObservableField;
 import android.widget.ArrayAdapter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
+import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
 
 /**
@@ -13,6 +21,7 @@ import by.academy.medvedeva.testandroid.base.BaseViewModel;
  */
 
 public class Task14ViewModel implements BaseViewModel {
+    ArrayAdapter<Country> adapter;
     private Activity activity;
 
     public Task14ViewModel(Activity activity) {
@@ -33,8 +42,12 @@ public class Task14ViewModel implements BaseViewModel {
     @Override
     public void resume() {
 
-     //   ArrayAdapter <Country> adapter =
+        List<Country> countryList = convertFromJson();
+        if (countryList != null) {
+            adapter = new ArrayAdapter<Country>(activity, R.layout.activity_task14, countryList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        }
 
 
     }
@@ -44,8 +57,18 @@ public class Task14ViewModel implements BaseViewModel {
 
     }
 
-    private List<Country> convertFromJson(){
-        return null;
+    private List<Country> convertFromJson() {
+
+        List<Country> countryList = new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            InputStream is = activity.getAssets().open("countries");
+            countryList = mapper.readValue(is, TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Country.class));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return countryList;
     }
 
 }
