@@ -1,7 +1,6 @@
 package by.academy.medvedeva.testandroid.task14;
 
 import android.app.Activity;
-import android.databinding.DataBindingUtil;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -13,9 +12,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
-import by.academy.medvedeva.testandroid.databinding.ActivityTask14Binding;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -23,17 +20,19 @@ import by.academy.medvedeva.testandroid.databinding.ActivityTask14Binding;
  */
 
 public class Task14ViewModel implements BaseViewModel {
-        public ArrayAdapter<Country> adapter;
     private Activity activity;
+    ArrayAdapter<Country> adapter;
+    List<Country> countryList;
 
-    public Task14ViewModel(Activity activity) {
+    Task14ViewModel(Activity activity) {
         this.activity = activity;
+        countryList = convertFromJson();
+        adapter = createAdapter();
     }
 
 
     @Override
     public void init() {
-
     }
 
     @Override
@@ -43,21 +42,7 @@ public class Task14ViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
-
-        final List<Country> countryList = convertFromJson();
-        if (countryList != null) {
-
-            ArrayAdapter<Country> adapter = new ArrayAdapter<Country>(activity, android.R.layout.simple_spinner_item, countryList);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            ActivityTask14Binding binding = DataBindingUtil.setContentView(activity, R.layout.activity_task14);
-            binding.spinner.setAdapter(adapter);
-            binding.spinner.setSelection(1);
-
-        } else {
-            Toast.makeText(activity, "list counties is empty", Toast.LENGTH_LONG).show();
-        }
-
-
+     //   countryList = convertFromJson();
     }
 
     @Override
@@ -78,5 +63,18 @@ public class Task14ViewModel implements BaseViewModel {
 
         return countryList;
     }
+
+    private ArrayAdapter<Country> createAdapter() {
+        final List<Country> countryList = convertFromJson();
+        ArrayAdapter<Country> adapter = null;
+        if (countryList != null) {
+            adapter = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_item, countryList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        } else {
+            Toast.makeText(activity, "list counties is empty", Toast.LENGTH_LONG).show();
+        }
+        return adapter;
+    }
+
 
 }
