@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
-import by.academy.medvedeva.testandroid.GlideApp;
+import com.bumptech.glide.Glide;
+
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.databinding.ActivityTask7Binding;
 
@@ -37,7 +38,7 @@ public class Task7Activity extends Activity {
 
     @BindingAdapter("bind:src")
     public static void setPhoto(ImageView photoImage, String imageUrl) {
-        GlideApp.with(photoImage.getContext()).load(imageUrl).into(photoImage);
+        Glide.with(photoImage.getContext()).load(imageUrl).into(photoImage);
     }
 
     @BindingConversion

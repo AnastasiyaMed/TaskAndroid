@@ -1,8 +1,9 @@
 package by.academy.medvedeva.testandroid.task14;
 
 import android.app.Activity;
-import android.databinding.ObservableField;
+import android.databinding.DataBindingUtil;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.base.BaseViewModel;
+import by.academy.medvedeva.testandroid.databinding.ActivityTask14Binding;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -21,7 +23,7 @@ import by.academy.medvedeva.testandroid.base.BaseViewModel;
  */
 
 public class Task14ViewModel implements BaseViewModel {
-    ArrayAdapter<Country> adapter;
+        public ArrayAdapter<Country> adapter;
     private Activity activity;
 
     public Task14ViewModel(Activity activity) {
@@ -42,11 +44,17 @@ public class Task14ViewModel implements BaseViewModel {
     @Override
     public void resume() {
 
-        List<Country> countryList = convertFromJson();
+        final List<Country> countryList = convertFromJson();
         if (countryList != null) {
-            adapter = new ArrayAdapter<Country>(activity, R.layout.activity_task14, countryList);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+            ArrayAdapter<Country> adapter = new ArrayAdapter<Country>(activity, android.R.layout.simple_spinner_item, countryList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            ActivityTask14Binding binding = DataBindingUtil.setContentView(activity, R.layout.activity_task14);
+            binding.spinner.setAdapter(adapter);
+            binding.spinner.setSelection(1);
+
+        } else {
+            Toast.makeText(activity, "list counties is empty", Toast.LENGTH_LONG).show();
         }
 
 
@@ -62,7 +70,7 @@ public class Task14ViewModel implements BaseViewModel {
         List<Country> countryList = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         try {
-            InputStream is = activity.getAssets().open("countries");
+            InputStream is = activity.getAssets().open("countries.json");
             countryList = mapper.readValue(is, TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Country.class));
         } catch (IOException e) {
             e.printStackTrace();

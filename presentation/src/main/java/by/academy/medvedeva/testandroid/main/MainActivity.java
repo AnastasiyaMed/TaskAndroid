@@ -27,6 +27,7 @@ import by.academy.medvedeva.testandroid.task1.Task1Activity;
 import by.academy.medvedeva.testandroid.task10.Task10Activity;
 import by.academy.medvedeva.testandroid.task11.Task11Activity;
 import by.academy.medvedeva.testandroid.task13.Task13Activity;
+import by.academy.medvedeva.testandroid.task14.Task14Activity;
 import by.academy.medvedeva.testandroid.task2.Task2Activity;
 import by.academy.medvedeva.testandroid.task3.Task3Activity;
 import by.academy.medvedeva.testandroid.task4.Task4Activity;
@@ -102,28 +103,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // ContextCompat помогает управлять разрешениями в разных версиях андроида
 
-        final Button task1Button = (Button) findViewById(R.id.task1_button);
-        final Button task2Button = (Button) findViewById(R.id.task2_button);
-        final Button task3Button = (Button) findViewById(R.id.task3_button);
-        final Button task4Button = (Button) findViewById(R.id.task4_button);
-        final Button task5Button = (Button) findViewById(R.id.task5_button);
-        final Button task6Button = (Button) findViewById(R.id.task6_button);
-        final Button task7Button = (Button) findViewById(R.id.task7_button);
-        final Button task9Button = (Button) findViewById(R.id.task9_button);
-        final Button task10Button = (Button) findViewById(R.id.task10_button);
-        final Button task11Button = (Button) findViewById(R.id.task11_button);
-        final Button task13Button = (Button) findViewById(R.id.task13_button);
-        final Button class2 = (Button) findViewById(R.id.class2_button);
-        final Button class3 = (Button) findViewById(R.id.class3_button);
-        final Button class4 = (Button) findViewById(R.id.class4_button);
-        final Button class5 = (Button) findViewById(R.id.class5_button);
-        final Button class6 = (Button) findViewById(R.id.class6_button);
-        final Button class7 = (Button) findViewById(R.id.class7_button);
-        final Button class8 = (Button) findViewById(R.id.class8_button);
-        final Button class10 = (Button) findViewById(R.id.class10_button);
-        final Button class12 = (Button) findViewById(R.id.class12_button);
-        final Button class13 = (Button) findViewById(R.id.class13_button);
-        final Button class16 = (Button) findViewById(R.id.class16_button);
+        final Button task1Button = findViewById(R.id.task1_button);
+        final Button task2Button = findViewById(R.id.task2_button);
+        final Button task3Button = findViewById(R.id.task3_button);
+        final Button task4Button = findViewById(R.id.task4_button);
+        final Button task5Button = findViewById(R.id.task5_button);
+        final Button task6Button = findViewById(R.id.task6_button);
+        final Button task7Button = findViewById(R.id.task7_button);
+        final Button task9Button = findViewById(R.id.task9_button);
+        final Button task10Button = findViewById(R.id.task10_button);
+        final Button task11Button = findViewById(R.id.task11_button);
+        final Button task13Button = findViewById(R.id.task13_button);
+        final Button task14Button = findViewById(R.id.task14_button);
+        final Button class2 = findViewById(R.id.class2_button);
+        final Button class3 = findViewById(R.id.class3_button);
+        final Button class4 = findViewById(R.id.class4_button);
+        final Button class5 = findViewById(R.id.class5_button);
+        final Button class6 = findViewById(R.id.class6_button);
+        final Button class7 = findViewById(R.id.class7_button);
+        final Button class8 = findViewById(R.id.class8_button);
+        final Button class10 = findViewById(R.id.class10_button);
+        final Button class12 = findViewById(R.id.class12_button);
+        final Button class13 = findViewById(R.id.class13_button);
+        final Button class16 = findViewById(R.id.class16_button);
 
         class2.setOnClickListener(this);
         class3.setOnClickListener(this);
@@ -147,6 +149,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         task10Button.setOnClickListener(this);
         task11Button.setOnClickListener(this);
         task13Button.setOnClickListener(this);
+        task14Button.setOnClickListener(this);
 
 
         task1Button.setOnClickListener(new View.OnClickListener() {
@@ -253,6 +256,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.task13_button):
                 intent = new Intent(getApplicationContext(), Task13Activity.class);
+                startActivity(intent);
+                break;
+            case (R.id.task14_button):
+                intent = new Intent(getApplicationContext(), Task14Activity.class);
                 startActivity(intent);
                 break;
         }

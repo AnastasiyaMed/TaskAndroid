@@ -3,6 +3,7 @@ package by.academy.medvedeva.testandroid.task14;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.SpinnerAdapter;
 
 import by.academy.medvedeva.testandroid.R;
 import by.academy.medvedeva.testandroid.base.BaseActivity;
@@ -21,8 +22,8 @@ public class Task14Activity extends BaseActivity {
         this.viewModel = viewModel;
         ActivityTask14Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_task14);
         binding.setViewModel(viewModel);
-        binding.spinner.setAdapter(viewModel.adapter);
-        binding.spinner.setSelection(1);
+//        binding.spinner.setAdapter(viewModel.adapter);
+//        binding.spinner.setSelection(1);
         super.onCreate(savedInstanceState);
     }
 }
