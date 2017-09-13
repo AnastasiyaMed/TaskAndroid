@@ -16,6 +16,7 @@ import by.academy.medvedeva.testandroid.classwork12.Classwork12Activity;
 import by.academy.medvedeva.testandroid.classwork13.Classwork13Activity;
 import by.academy.medvedeva.testandroid.classwork14.ClassWork14Activity;
 import by.academy.medvedeva.testandroid.classwork16.Classwork16Activity;
+import by.academy.medvedeva.testandroid.classwork18.Classwork18Activity;
 import by.academy.medvedeva.testandroid.classwork2.Classwork2Activity;
 import by.academy.medvedeva.testandroid.classwork3.Classwork3Activity;
 import by.academy.medvedeva.testandroid.classwork4.Classwork4Activity;
@@ -128,6 +129,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button class12 = findViewById(R.id.class12_button);
         final Button class13 = findViewById(R.id.class13_button);
         final Button class16 = findViewById(R.id.class16_button);
+        final Button class18 = findViewById(R.id.class18_button);
 
         class2.setOnClickListener(this);
         class3.setOnClickListener(this);
@@ -141,6 +143,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         class13.setOnClickListener(this);
         class14.setOnClickListener(this);
         class16.setOnClickListener(this);
+        class18.setOnClickListener(this);
         task2Button.setOnClickListener(this);
         task3Button.setOnClickListener(this);
         task4Button.setOnClickListener(this);
@@ -214,6 +217,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.class16_button):
                 intent = new Intent(getApplicationContext(), Classwork16Activity.class);
+                startActivity(intent);
+                break;
+            case (R.id.class18_button):
+                intent = new Intent(getApplicationContext(), Classwork18Activity.class);
                 startActivity(intent);
                 break;
             case (R.id.task1_button):
