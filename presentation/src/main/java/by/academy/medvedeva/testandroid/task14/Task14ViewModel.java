@@ -1,6 +1,10 @@
 package by.academy.medvedeva.testandroid.task14;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.databinding.ObservableInt;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -21,12 +25,13 @@ import by.academy.medvedeva.testandroid.base.BaseViewModel;
 
 public class Task14ViewModel implements BaseViewModel {
     private Activity activity;
-    ArrayAdapter<Country> adapter;
-    List<Country> countryList;
+    ArrayAdapter<String> adapter;
+    private List<String> countryNameList;
+    public ObservableInt position = new ObservableInt(1);
 
     Task14ViewModel(Activity activity) {
         this.activity = activity;
-        countryList = convertFromJson();
+        countryNameList = convertFromJson();
         adapter = createAdapter();
     }
 
@@ -42,15 +47,18 @@ public class Task14ViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
-     //   countryList = convertFromJson();
+        SharedPreferences pref = activity.getPreferences(Context.MODE_PRIVATE);
+        position.set(pref.getInt("POSITION", 1));
     }
 
     @Override
     public void pause() {
-
+        SharedPreferences.Editor editPref = activity.getPreferences(Context.MODE_PRIVATE).edit();
+        editPref.putInt("POSITION", position.get()).apply();
+        Log.e("TEST", String.valueOf(position.get()));
     }
 
-    private List<Country> convertFromJson() {
+    private List<String> convertFromJson() {
 
         List<Country> countryList = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
@@ -60,15 +68,19 @@ public class Task14ViewModel implements BaseViewModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        List<String> countryNameList = new ArrayList<>();
+        for (Country country : countryList) {
+            countryNameList.add(country.getName());
+        }
 
-        return countryList;
+        return countryNameList;
     }
 
-    private ArrayAdapter<Country> createAdapter() {
-        final List<Country> countryList = convertFromJson();
-        ArrayAdapter<Country> adapter = null;
-        if (countryList != null) {
-            adapter = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_item, countryList);
+    private ArrayAdapter<String> createAdapter() {
+        final List<String> countryNameList = convertFromJson();
+        ArrayAdapter<String> adapter = null;
+        if (countryNameList != null) {
+            adapter = new ArrayAdapter<>(activity, android.R.layout.simple_spinner_item, countryNameList);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         } else {
             Toast.makeText(activity, "list counties is empty", Toast.LENGTH_LONG).show();

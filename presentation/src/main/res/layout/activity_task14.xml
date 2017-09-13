@@ -19,13 +19,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+            android:gravity="center"
+            android:text="Task 14 Country Spinner" />
 
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:selectedItemPosition="@={viewModel.position}"
             />
 
 
