@@ -23,15 +23,23 @@ class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.e("DBHelper", "onCreate()");
-        db.execSQL("CREATE TABLE user ('id' INTEGER PRIMARY_KEY AUTOINCREMENT, "+
-                "'name' TEXT ,'age' INTEGER , 'countryId' INTEGER)");
+        try {
+            db.execSQL("CREATE TABLE user ('id' INTEGER PRIMARY_KEY AUTOINCREMENT, " +
+                    "'name' TEXT ,'age' INTEGER , 'countryId' INTEGER)");
 
-        db.execSQL("CREATE TABLE country ('id' INTEGER PRIMARY_KEY AUTOINCREMENT, "+
-                "'name' TEXT)");
+            db.execSQL("CREATE TABLE country ('id' INTEGER PRIMARY_KEY AUTOINCREMENT, " +
+                    "'name' TEXT)");
+        } catch (Exception exception) {
+            Log.e("DBHelper", exception.getMessage());
+        }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.e("DBHelper", "onUpgrade()");
+        db.execSQL("DROP TABLE IF EXISTS user");
+        db.execSQL("DROP TABLE IF EXISTS country");
+        onCreate(db);
     }
+
 }

@@ -34,6 +34,7 @@
         <activity android:name="by.academy.medvedeva.testandroid.task13.EditProfileActivity" />
 
         <activity android:name="by.academy.medvedeva.testandroid.task14.Task14Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.task15.Task15Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork2.Classwork2Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork3.Classwork3Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork4.Classwork4Activity" />

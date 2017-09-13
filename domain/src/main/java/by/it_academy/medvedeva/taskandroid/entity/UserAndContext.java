@@ -9,21 +9,26 @@ import android.content.Context;
 
 public class UserAndContext {
     private Context context;
-    private User user;
+    private UserDomain userDomain;
+
+    public UserAndContext(Context context, UserDomain userDomain) {
+        this.context = context;
+        this.userDomain = userDomain;
+    }
 
     public Context getContext() {
         return context;
     }
 
-    public User getUser() {
-        return user;
+    public UserDomain getUserDomain() {
+        return userDomain;
     }
 
     public void setContext(Context context) {
         this.context = context;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserDomain(UserDomain userDomain) {
+        this.userDomain = userDomain;
     }
 }

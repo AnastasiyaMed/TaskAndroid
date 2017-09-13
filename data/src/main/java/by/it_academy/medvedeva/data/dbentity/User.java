@@ -7,16 +7,16 @@ package by.it_academy.medvedeva.data.dbentity;
 
 public class User {
 
-    private String id;
+    private int id;
     private String name;
     private int age;
     private Country country;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

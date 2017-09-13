@@ -119,6 +119,15 @@
             android:text="@string/task14" />
 
         <Button
+            android:id="@+id/task15_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/task14_button"
+            android:layout_marginBottom="@dimen/task2_top_margin"
+            android:text="@string/task15" />
+
+        <Button
             android:id="@+id/class2_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

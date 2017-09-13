@@ -1,10 +1,12 @@
 package by.it_academy.medvedeva.data.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import by.it_academy.medvedeva.data.dbentity.Country;
@@ -58,14 +60,46 @@ public class DataBaseManager {
     }
 
     public void updateUser(User user) {
+        open(true);
+        ContentValues values = new ContentValues();
+        values.put("user_name", user.getName());
+        values.put("user_age", user.getAge());
+        values.put("countryId", user.getCountry().getId());
 
+        sqLiteDatabase.update("user", values, "_id" + " = ?", new String[]{String.valueOf(user.getId())});
+        close();
     }
+
 
     public List<User> getUsers() {
-        return null;
+        List<User> userList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM user INNER JOIN country ON user.countryId = country.id";
+
+        open(false);
+        Cursor cursor = sqLiteDatabase.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                User user = new User();
+                Country country = new Country();
+                user.setId(cursor.getInt(0));
+                user.setName(cursor.getString(1));
+                user.setAge(cursor.getInt(2));
+                country.setId(cursor.getInt(3));
+                country.setName(cursor.getString(4));
+                user.setCountry(country);
+
+                // Adding user to list
+                userList.add(user);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        close();
+
+        // return user list
+        return userList;
     }
 
-    public User getUserById(String id) {
+    public User getUserById(int id) {
         //StringBuilder getByIdQuery = new StringBuilder();
 
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM user INNER JOIN country ON user.countryId = country.id WHERE id = ?",
@@ -73,7 +107,7 @@ public class DataBaseManager {
         if (cursor != null) {
             User user = new User();
             cursor.moveToFirst();
-            int userid = cursor.getInt(0);
+            //  int userid = cursor.getInt(0);
             String name = cursor.getString(1);
             int age = cursor.getInt(2);
 
@@ -92,8 +126,29 @@ public class DataBaseManager {
 
         } else {
             Log.e(getClass().getName(), "getUserById() cursorr is null");
+            return null;
         }
-        return null;
+    }
+
+    public int getUserCount() {
+
+        open(false);
+
+        String countQuery = "SELECT  * FROM user";
+        Cursor cursor = sqLiteDatabase.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        close();
+
+        // return count
+        return count;
+    }
+
+    // Deleting single contact
+    public  void deleteUser(User user) {
+        open(true);
+        sqLiteDatabase.delete("user", "_id" + " = ?", new String[] { String.valueOf(user.getId()) });
+        sqLiteDatabase.close();
     }
 
 

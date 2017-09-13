@@ -3,6 +3,7 @@ package by.academy.medvedeva.testandroid.classwork5;
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 /**
  * Created by Medvedeva Anastasiya

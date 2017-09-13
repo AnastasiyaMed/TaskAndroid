@@ -5,12 +5,16 @@ package by.it_academy.medvedeva.taskandroid.entity;
  * on 04.09.2017.
  */
 
-public class Country {
+public class CountryDomain {
 
     private int id;
     private String name;
 
-    public Country(int id, String name) {
+
+    public CountryDomain() {
+    }
+
+    public CountryDomain(int id, String name) {
         this.id = id;
         this.name = name;
     }

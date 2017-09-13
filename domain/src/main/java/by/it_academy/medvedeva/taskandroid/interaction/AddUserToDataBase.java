@@ -1,8 +1,12 @@
 package by.it_academy.medvedeva.taskandroid.interaction;
 
+import android.util.Log;
+
 import by.it_academy.medvedeva.data.database.DataBaseManager;
-import by.it_academy.medvedeva.taskandroid.entity.Country;
-import by.it_academy.medvedeva.taskandroid.entity.User;
+import by.it_academy.medvedeva.data.dbentity.Country;
+import by.it_academy.medvedeva.data.dbentity.User;
+import by.it_academy.medvedeva.taskandroid.entity.CountryDomain;
+import by.it_academy.medvedeva.taskandroid.entity.UserDomain;
 import by.it_academy.medvedeva.taskandroid.entity.UserAndContext;
 import by.it_academy.medvedeva.taskandroid.interaction.base.UseCase;
 import io.reactivex.Observable;
@@ -15,37 +19,40 @@ import io.reactivex.annotations.NonNull;
  * on 06.09.2017.
  */
 
-public class AddUserToDataBase extends UseCase<UserAndContext, Void> {
+public class AddUserToDataBase extends UseCase<UserAndContext, String> {
+
     @Override
-    protected Observable<Void> buildUseCase(final UserAndContext param) {
+    protected Observable<String> buildUseCase(final UserAndContext param) {
 
 
-        Observable.create(new ObservableOnSubscribe<Void>() {
+        Observable.create(new ObservableOnSubscribe<String>() {
             @Override
-            public void subscribe(@NonNull ObservableEmitter<Void> e) throws Exception {
+            public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
                 DataBaseManager dataBaseManager = new DataBaseManager(param.getContext());
                 dataBaseManager.open(true);
-                dataBaseManager.insertUser(convert(param.getUser()));
+                dataBaseManager.insertUser(convert(param.getUserDomain()));
                 dataBaseManager.close();
+                Log.e("AAA", "DONE!");
             }
         });
-        return Observable.just(null);
+        return Observable.just("OK");
+
     }
 
-    private by.it_academy.medvedeva.data.dbentity.User convert(User user) {
-        by.it_academy.medvedeva.data.dbentity.User userData = new by.it_academy.medvedeva.data.dbentity.User();
-        userData.setCountry(convertCountry(user.getCountry()));
-        userData.setId(user.getId());
-        userData.setName(user.getName());
-        userData.setAge(user.getAge());
+    private User convert(UserDomain userDomain) {
+        User userData = new User();
+        userData.setCountry(convertCountry(userDomain.getCountryDomain()));
+        userData.setId(userDomain.getId());
+        userData.setName(userDomain.getName());
+        userData.setAge(userDomain.getAge());
 
         return userData;
     }
 
-    private by.it_academy.medvedeva.data.dbentity.Country convertCountry(Country country) {
-        by.it_academy.medvedeva.data.dbentity.Country countryData = new by.it_academy.medvedeva.data.dbentity.Country();
-        countryData.setName(country.getName());
-        countryData.setId(country.getId());
+    private Country convertCountry(CountryDomain countryDomain) {
+        Country countryData = new Country();
+        countryData.setName(countryDomain.getName());
+        countryData.setId(countryDomain.getId());
         return countryData;
     }
 }

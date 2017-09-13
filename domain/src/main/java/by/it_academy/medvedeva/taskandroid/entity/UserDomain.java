@@ -5,18 +5,18 @@ package by.it_academy.medvedeva.taskandroid.entity;
  * on 04.09.2017.
  */
 
-public class User {
+public class UserDomain {
 
-    private String id;
+    private int id;
     private String name;
     private int age;
-    private Country country;
+    private CountryDomain countryDomain;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -36,11 +36,11 @@ public class User {
         this.age = age;
     }
 
-    public Country getCountry() {
-        return country;
+    public CountryDomain getCountryDomain() {
+        return countryDomain;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setCountryDomain(CountryDomain countryDomain) {
+        this.countryDomain = countryDomain;
     }
 }
