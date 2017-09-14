@@ -74,7 +74,8 @@ public class DataBaseManager {
 
     public List<User> getUsers() {
         List<User> userList = new ArrayList<>();
-        String selectQuery = "SELECT * FROM user INNER JOIN country ON user.countryId = country.id";
+     //   String selectQuery = "SELECT * FROM user INNER JOIN country ON user.countryId = country.id";
+        String selectQuery = "SELECT * FROM user";
 
         Cursor cursor = sqLiteDatabase.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
@@ -85,7 +86,7 @@ public class DataBaseManager {
                 user.setName(cursor.getString(1));
                 user.setAge(cursor.getInt(2));
                 country.setId(cursor.getInt(3));
-                country.setName(cursor.getString(4));
+            //    country.setName(cursor.getString(4));
                 user.setCountry(country);
 
                 // Adding user to list
