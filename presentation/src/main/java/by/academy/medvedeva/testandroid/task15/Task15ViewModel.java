@@ -1,8 +1,8 @@
 package by.academy.medvedeva.testandroid.task15;
 
+import android.app.Activity;
 import android.content.ContextWrapper;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.databinding.ObservableField;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,70 +13,49 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import by.academy.medvedeva.testandroid.base.BaseActivity;
+import by.academy.medvedeva.testandroid.base.BaseViewModel;
+import by.academy.medvedeva.testandroid.task13.Task13ViewModel;
 import by.it_academy.medvedeva.taskandroid.entity.CountryDomain;
-import by.it_academy.medvedeva.taskandroid.entity.UserAndContext;
 import by.it_academy.medvedeva.taskandroid.entity.UserDomain;
-import by.it_academy.medvedeva.taskandroid.interaction.AddUserToDataBase;
 import by.it_academy.medvedeva.taskandroid.interaction.UserListFromBDUseCase;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
 
 /**
  * Created by Medvedeva Anastasiya
- * on 13.09.2017.
+ * on 14.09.2017.
  */
 
-public class Task15Activity extends BaseActivity {
+public class Task15ViewModel implements BaseViewModel {
+    public enum STATE {PROGRESS, DATA}
+    public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
+    private Activity activity;
 
+    public Task15ViewModel(Activity activity) {
+        this.activity = activity;
+    }
+    UserListFromBDUseCase userListGetter = new UserListFromBDUseCase();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Task15ViewModel viewModel = new Task15ViewModel(this);
-        this.viewModel = viewModel;
-        super.onCreate(savedInstanceState);
+    public void init() {
 
-        AddUserToDataBase addHelper = new AddUserToDataBase();
+    }
 
-        CountryDomain country = new CountryDomain();
-        country.setCode("AF");
-        UserDomain user = new UserDomain();
-        user.setName("Uasia");
-        user.setAge(25);
-        user.setCountryDomain(country);
+    @Override
+    public void release() {
 
-        UserAndContext uac = new UserAndContext(this, user);
+    }
 
-        addHelper.execute(uac, new DisposableObserver<String>() {
-
-            @Override
-            public void onNext(@NonNull String s) {
-                Log.e("AAA", s);
-            }
-
-            @Override
-            public void onError(@NonNull Throwable e) {
-                Log.e("AAA", e.getMessage());
-                Log.e("AAA", "FUCK THAT!");
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
-
-        //List<UserDomain> userDomainList = new ArrayList<>();
-        UserListFromBDUseCase userListGetter = new UserListFromBDUseCase();
-
-        ContextWrapper contextWrapper = new ContextWrapper(getBaseContext());
+    @Override
+    public void resume() {
+        ContextWrapper contextWrapper = new ContextWrapper(activity.getBaseContext());
         userListGetter.execute(contextWrapper, new DisposableObserver<List<UserDomain>>() {
             @Override
             public void onNext(@NonNull List<UserDomain> userDomains) {
                 List<CountryDomain> countryList = new ArrayList<>();
                 ObjectMapper mapper = new ObjectMapper();
                 try {
-                    InputStream is = getAssets().open("countries.json");
+                    InputStream is = activity.getAssets().open("countries.json");
                     countryList = mapper.readValue(is, TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, CountryDomain.class));
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -111,5 +90,12 @@ public class Task15Activity extends BaseActivity {
 
             }
         });
+    }
+
+
+
+    @Override
+    public void pause() {
+        userListGetter.dispose();
     }
 }

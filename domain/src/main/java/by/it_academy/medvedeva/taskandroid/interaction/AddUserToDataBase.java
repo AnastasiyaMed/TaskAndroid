@@ -50,7 +50,7 @@ public class AddUserToDataBase extends UseCase<UserAndContext, String> {
     private Country convertCountry(CountryDomain countryDomain) {
         Country countryData = new Country();
         countryData.setName(countryDomain.getName());
-        countryData.setId(countryDomain.getId());
+        countryData.setCode(countryDomain.getCode());
         return countryData;
     }
 }

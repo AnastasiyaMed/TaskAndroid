@@ -51,8 +51,8 @@ public class UserListFromBDUseCase extends UseCase<ContextWrapper, List<UserDoma
         for (User user : userList) {
             UserDomain userDomain = new UserDomain();
             CountryDomain countryDomain = new CountryDomain();
-            countryDomain.setName(user.getCountry().getName());
-            countryDomain.setId(user.getCountry().getId());
+            // countryDomain.setName(user.getCountry().getName());
+            countryDomain.setCode(user.getCountry().getCode());
 
             userDomain.setCountryDomain(countryDomain);
             userDomain.setId(user.getId());

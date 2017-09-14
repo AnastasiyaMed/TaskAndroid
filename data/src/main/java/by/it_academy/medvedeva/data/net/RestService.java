@@ -67,7 +67,7 @@ public class RestService {
     }
 
 //    public Observable<Void> saveProfile(Profile profile) {
-//        return restApi.saveProfile("id=".concat(String.valueOf(profile.getId())), profile);
+//        return restApi.saveProfile("id=".concat(String.valueOf(profile.getCode())), profile);
 //    }
 
     public Observable<Void> saveProfile(Profile profile) {

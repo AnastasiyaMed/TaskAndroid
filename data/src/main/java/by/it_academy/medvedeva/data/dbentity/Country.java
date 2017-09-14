@@ -7,23 +7,23 @@ package by.it_academy.medvedeva.data.dbentity;
 
 public class Country {
 
-    private int id;
+    private String code;
     private String name;
 
     public Country() {
     }
 
-    public Country(int id, String name) {
-        this.id = id;
+    public Country(String id, String name) {
+        this.code = id;
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public String getCode() {
+        return code;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {

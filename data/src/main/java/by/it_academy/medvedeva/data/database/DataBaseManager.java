@@ -45,14 +45,14 @@ public class DataBaseManager {
     public void insertUser(User user) {
         StringBuilder query = new StringBuilder();
         Log.e("DatabaseManager", "insertUser() ");
-        query.append("INSERT INTO user ('name', 'age', 'countryId')");
-        query.append("VALUES ( '");
+        query.append("INSERT INTO user ('name', 'age', 'country')");
+        query.append(" VALUES ( '");
         query.append(user.getName());
         query.append("', ");
         query.append(user.getAge());
-        query.append(", ");
-        query.append(user.getCountry().getId());
-        query.append(")");
+        query.append(", '");
+        query.append(user.getCountry().getCode());
+        query.append("')");
 
         //INSERT INTO user ('name', 'age', 'countryId') VALUES ('Name', 25, 0)
 
@@ -65,7 +65,7 @@ public class DataBaseManager {
         ContentValues values = new ContentValues();
         values.put("user_name", user.getName());
         values.put("user_age", user.getAge());
-        values.put("countryId", user.getCountry().getId());
+        values.put("country", user.getCountry().getCode());
 
         sqLiteDatabase.update("user", values, "_id" + " = ?", new String[]{String.valueOf(user.getId())});
         close();
@@ -85,7 +85,7 @@ public class DataBaseManager {
                 user.setId(cursor.getInt(0));
                 user.setName(cursor.getString(1));
                 user.setAge(cursor.getInt(2));
-                country.setId(cursor.getInt(3));
+                country.setCode(cursor.getString(3));
             //    country.setName(cursor.getString(4));
                 user.setCountry(country);
 
@@ -102,8 +102,8 @@ public class DataBaseManager {
     public User getUserById(int id) {
         //StringBuilder getByIdQuery = new StringBuilder();
 
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM user INNER JOIN country ON user.countryId = country.id WHERE id = ?",
-                new String[]{String.valueOf(id)});
+//        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM user INNER JOIN country ON user.countryId = country.id WHERE id = ?",
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM user WHERE id = ?", new String[]{String.valueOf(id)});
         if (cursor != null) {
             User user = new User();
             cursor.moveToFirst();
@@ -111,10 +111,10 @@ public class DataBaseManager {
             String name = cursor.getString(1);
             int age = cursor.getInt(2);
 
-            int countryId = cursor.getInt(3);
-            String countryName = cursor.getString(4);
+            String countryCode = cursor.getString(3);
 
-            Country country = new Country(countryId, countryName);
+            Country country = new Country();
+            country.setCode(countryCode);
 
             user.setName(name);
             user.setAge(age);
@@ -125,30 +125,24 @@ public class DataBaseManager {
             return user;
 
         } else {
-            Log.e(getClass().getName(), "getUserById() cursorr is null");
+            Log.e(getClass().getName(), "getUserById() cursor is null");
             return null;
         }
     }
 
     public int getUserCount() {
 
-        open(false);
-
         String countQuery = "SELECT  * FROM user";
         Cursor cursor = sqLiteDatabase.rawQuery(countQuery, null);
         int count = cursor.getCount();
         cursor.close();
-        close();
-
         // return count
         return count;
     }
 
     // Deleting single contact
     public  void deleteUser(User user) {
-        open(true);
-        sqLiteDatabase.delete("user", "_id" + " = ?", new String[] { String.valueOf(user.getId()) });
-        sqLiteDatabase.close();
+        sqLiteDatabase.delete("user", "id" + " = ?", new String[] { String.valueOf(user.getId()) });
     }
 
 

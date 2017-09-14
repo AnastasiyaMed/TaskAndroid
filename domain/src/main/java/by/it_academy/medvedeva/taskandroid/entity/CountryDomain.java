@@ -7,24 +7,20 @@ package by.it_academy.medvedeva.taskandroid.entity;
 
 public class CountryDomain {
 
-    private int id;
+    private String code;
     private String name;
 
 
     public CountryDomain() {
     }
 
-    public CountryDomain(int id, String name) {
-        this.id = id;
-        this.name = name;
+
+    public String getCode() {
+        return code;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {
