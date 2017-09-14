@@ -25,7 +25,7 @@ public class AddUserToDataBase extends UseCase<UserAndContext, String> {
     protected Observable<String> buildUseCase(final UserAndContext param) {
 
 
-        Observable.create(new ObservableOnSubscribe<String>() {
+        return  Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
                 DataBaseManager dataBaseManager = new DataBaseManager(param.getContext());
@@ -35,8 +35,6 @@ public class AddUserToDataBase extends UseCase<UserAndContext, String> {
                 Log.e("AAA", "DONE!");
             }
         });
-        return Observable.just("OK");
-
     }
 
     private User convert(UserDomain userDomain) {

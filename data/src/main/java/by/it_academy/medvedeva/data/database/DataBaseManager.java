@@ -44,6 +44,7 @@ public class DataBaseManager {
 
     public void insertUser(User user) {
         StringBuilder query = new StringBuilder();
+        Log.e("DatabaseManager", "insertUser() ");
         query.append("INSERT INTO user ('name', 'age', 'countryId')");
         query.append("VALUES ( '");
         query.append(user.getName());
@@ -75,7 +76,6 @@ public class DataBaseManager {
         List<User> userList = new ArrayList<>();
         String selectQuery = "SELECT * FROM user INNER JOIN country ON user.countryId = country.id";
 
-        open(false);
         Cursor cursor = sqLiteDatabase.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
@@ -93,7 +93,6 @@ public class DataBaseManager {
             } while (cursor.moveToNext());
         }
         cursor.close();
-        close();
 
         // return user list
         return userList;

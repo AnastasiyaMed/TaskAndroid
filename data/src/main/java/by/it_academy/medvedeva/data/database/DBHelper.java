@@ -12,11 +12,11 @@ import android.util.Log;
 
 class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "test";
-    private static final int VERSION = 1;
+    private static final int VERSION = 4;
 
 // sqLite не потокобезопасный и выполняется в UI потоке
 
-    public DBHelper(Context context) {
+    DBHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
 
@@ -24,11 +24,12 @@ class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.e("DBHelper", "onCreate()");
         try {
-            db.execSQL("CREATE TABLE user ('id' INTEGER PRIMARY_KEY AUTOINCREMENT, " +
+            db.execSQL("CREATE TABLE IF NOT EXISTS user ('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "'name' TEXT ,'age' INTEGER , 'countryId' INTEGER)");
 
-            db.execSQL("CREATE TABLE country ('id' INTEGER PRIMARY_KEY AUTOINCREMENT, " +
+            db.execSQL("CREATE TABLE IF NOT EXISTS country ('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "'name' TEXT)");
+            Log.e("DBHelper", "createComplete");
         } catch (Exception exception) {
             Log.e("DBHelper", exception.getMessage());
         }
