@@ -14,15 +14,23 @@
     </data>
 
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#87c6ed">
+        android:background="#87c6ed"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onSuperButtonClick()}"
+            android:textSize="20sp"
+            android:text="Add new user" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}" />
 
@@ -32,5 +40,8 @@
             android:layout_gravity="center"
             android:visibility="@{viewModel.state == STATE.PROGRESS ? View.VISIBLE : View.GONE}" />
 
-    </FrameLayout>
+
+
+
+    </LinearLayout>
 </layout>

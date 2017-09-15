@@ -13,6 +13,7 @@ import android.util.Log;
 class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "test";
     private static final int VERSION = 5;
+    public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS user ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' TEXT ,'age' INTEGER , 'country' TEXT)";
 
 // sqLite не потокобезопасный и выполняется в UI потоке
 
@@ -24,8 +25,7 @@ class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.e("DBHelper", "onCreate()");
         try {
-            db.execSQL("CREATE TABLE IF NOT EXISTS user ('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "'name' TEXT ,'age' INTEGER , 'country' TEXT)");
+            db.execSQL(CREATE_TABLE);
 
 //            db.execSQL("CREATE TABLE IF NOT EXISTS country ('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
 //                    "'name' TEXT)");
@@ -39,7 +39,7 @@ class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.e("DBHelper", "onUpgrade()");
         db.execSQL("DROP TABLE IF EXISTS user");
-      //  db.execSQL("DROP TABLE IF EXISTS country");
+        //  db.execSQL("DROP TABLE IF EXISTS country");
         onCreate(db);
     }
 

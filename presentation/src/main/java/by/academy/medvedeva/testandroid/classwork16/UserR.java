@@ -17,9 +17,6 @@ public class UserR extends RealmObject{
         return id;
     }
 
-    public UserR() {
-    }
-
     public void setId(int id) {
         this.id = id;
     }

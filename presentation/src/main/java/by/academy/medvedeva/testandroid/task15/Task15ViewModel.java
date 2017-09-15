@@ -2,6 +2,7 @@ package by.academy.medvedeva.testandroid.task15;
 
 import android.app.Activity;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.databinding.ObservableField;
 import android.util.Log;
 import android.widget.Toast;
@@ -106,5 +107,10 @@ public class Task15ViewModel implements BaseViewModel {
     @Override
     public void pause() {
         userListGetter.dispose();
+    }
+
+    public void onSuperButtonClick() {
+        Intent intent = new Intent(activity, AddUserActivity.class);
+        activity.startActivity(intent);
     }
 }
