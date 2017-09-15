@@ -3,6 +3,7 @@ package by.academy.medvedeva.testandroid.task15;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import by.academy.medvedeva.testandroid.base.BaseAdapter;
 import by.it_academy.medvedeva.taskandroid.entity.UserDomain;
 
 /**

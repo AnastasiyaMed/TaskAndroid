@@ -12,7 +12,7 @@ import android.util.Log;
 
 class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "test";
-    private static final int VERSION = 1;
+    private static final int VERSION = 5;
 
 // sqLite не потокобезопасный и выполняется в UI потоке
 
