@@ -49,6 +49,7 @@
         <activity android:name="by.academy.medvedeva.testandroid.classwork14.ClassWork14Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork16.Classwork16Activity" />
         <activity android:name="by.academy.medvedeva.testandroid.classwork18.Classwork18Activity" />
+        <activity android:name="by.academy.medvedeva.testandroid.classwork21.LoginActivity" />
 
         <activity
             android:name="by.academy.medvedeva.testandroid.main.MainActivity"
@@ -70,7 +71,9 @@
         <service android:name="by.academy.medvedeva.testandroid.classwork5.MyService" />
         <service android:name="by.academy.medvedeva.testandroid.classwork5.MyIntentService" />
         <service android:name="by.academy.medvedeva.testandroid.task5.Task5Service" />
-
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="a9f9643b724dabb756aa2ae036bc11344d423ea9" />
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

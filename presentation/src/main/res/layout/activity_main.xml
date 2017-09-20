@@ -242,5 +242,13 @@
             android:layout_below="@+id/class16_button"
             android:layout_marginBottom="@dimen/task2_top_margin"
             android:text="@string/class18" />
+
+        <Button
+            android:id="@+id/login_button"
+            style="@style/LoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/class18_button"
+            android:text="@string/login" />
     </RelativeLayout>
 </ScrollView>

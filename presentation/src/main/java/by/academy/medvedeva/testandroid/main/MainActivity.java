@@ -8,6 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.crashlytics.android.Crashlytics;
+
+import by.academy.medvedeva.testandroid.classwork21.LoginActivity;
+import io.fabric.sdk.android.Fabric;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import by.academy.medvedeva.testandroid.R;
@@ -68,6 +73,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         // посылаем информацию в паблишсабжэект
@@ -130,6 +136,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button class13 = findViewById(R.id.class13_button);
         final Button class16 = findViewById(R.id.class16_button);
         final Button class18 = findViewById(R.id.class18_button);
+        final Button login = findViewById(R.id.login_button);
 
         class2.setOnClickListener(this);
         class3.setOnClickListener(this);
@@ -144,6 +151,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         class14.setOnClickListener(this);
         class16.setOnClickListener(this);
         class18.setOnClickListener(this);
+        login.setOnClickListener(this);
         task2Button.setOnClickListener(this);
         task3Button.setOnClickListener(this);
         task4Button.setOnClickListener(this);
@@ -221,6 +229,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case (R.id.class18_button):
                 intent = new Intent(getApplicationContext(), Classwork18Activity.class);
+                startActivity(intent);
+                break;
+
+            case (R.id.login_button):
+                intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 break;
             case (R.id.task1_button):

@@ -1,5 +1,31 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
+apply plugin: 'io.fabric'
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+
+
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+dependencies {
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+}
 
 android {
     compileSdkVersion 26
@@ -8,27 +34,59 @@ android {
         applicationId "by.it_academy.medvedeva.testandroid"
         minSdkVersion 18
         targetSdkVersion 26
+        // посмотреть как юзается билдконфиг филд можно в домашке 2
         buildConfigField "String", "API_ENDPOINT", '"https://my-server.example"'
 //        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        debug {
+            storeFile file('C://Users//Nastia//AndroidStudioProjects//Study//.idea/sertificat.jks')
+            storePassword 'gjvbljhrf23'
+            keyAlias 'gjvbljhrf23'
+            keyPassword 'gjvbljhrf23'
+        }
+    }
+
+
+
     buildTypes {
         release {
             minifyEnabled false
+            // в значении true усложняет декомпиляцию. Может быть опасно для JSON
+            //в таки случаях надо настраивать прогуард. там добавляются классы, которые нужно исключить из обработки
+            // при подключении дополнительных библиотек, смотреть в доках, что добавить в исключания в прогуард
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            // в дебаге лучше оставлять false. Иначе будут странно смотрется логи в андроид мониторе
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
     productFlavors {
-
+        // можно рядом с папкой мэйн положить папку free или pay и тогда код, который лежит в этих папках, будет запускаться только в выбранном
+        // режиме. содержимое папки main будет запускаться в любом случае
         free {
+            //это будет константа для , например, ретрофита, по какой ссылке он пойдет за базой
+            // даже если строки не различаются, для ретрофита лучше выносить все в грэдл
+            // приваривать к дате дагером в классе настроек (конструктора)
+            buildConfigField "String", "API_REST", "\"https://tut.by/\""
             versionCode 1
             versionName "1.0-free"
         }
 
         pay {
+            buildConfigField "String", "API_REST", "\"https://test.tut.by/\""
             versionCode 1
             versionName "1.0-pay"
+        }
+
+        developer {
+            versionCode 1
+            versionName "1.0-dev"
         }
     }
 
@@ -36,6 +94,15 @@ android {
         enabled = true
     }
 }
+
+task loadToFabric(dependsOn: "assembleDeveloperRelease"){
+
+//   def task = tasks.getByName("crashlyticsUploadDistributionDeveloperRelease")
+//    task.ext.betaDistributionReleaseNotes = ""
+//    task.ext.betaDistributionGroupAliases = ""
+//    task.execute()
+}
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -74,11 +141,11 @@ dependencies {
     provided 'javax.annotation:jsr250-api:1.0'
 
 
+
 }
 repositories {
     mavenCentral()
     maven {
         url "https://maven.google.com"
     }
-
 }

@@ -6,7 +6,9 @@ import com.google.gson.GsonBuilder;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import by.it_academy.medvedeva.data.entity.AccessTokenData;
 import by.it_academy.medvedeva.data.entity.Profile;
+import by.it_academy.medvedeva.data.entity.RegisterData;
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -72,5 +74,13 @@ public class RestService {
 
     public Observable<Void> saveProfile(Profile profile) {
         return restApi.saveProfile(profile.getId(), profile);
+    }
+
+    public Observable<AccessTokenData> register (RegisterData registerData) {
+       // заглушка
+        AccessTokenData accessTokenData = new AccessTokenData();
+        accessTokenData.setAccessToken("You are awesome and pretty girl!");
+        return Observable.just(accessTokenData);
+
     }
 }

@@ -1,5 +1,9 @@
 package by.academy.medvedeva.testandroid.datainjection;
 
+import android.content.Context;
+
+import java.util.Collection;
+
 import javax.inject.Singleton;
 
 import by.academy.medvedeva.testandroid.classwork17.Gson;
@@ -17,6 +21,22 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
+
+    // провайдеры для всех классов не обязательны. НО если в конструкторе нет параметров, которые нужно где-то брать.
+    // например контекст
+
+
+    private Context context;
+
+
+    public AppModule(Context context) {
+        this.context = context;
+    }
+
+    @Provides
+    public  Context provideContext(){
+        return context;
+    }
 
     @Provides
     @Singleton // делает UseCase1 синглтоном

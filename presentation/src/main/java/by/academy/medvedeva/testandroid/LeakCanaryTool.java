@@ -7,6 +7,7 @@ import com.squareup.leakcanary.LeakCanary;
 import by.academy.medvedeva.testandroid.datainjection.AppComponent;
 import by.academy.medvedeva.testandroid.datainjection.AppModule;
 import by.academy.medvedeva.testandroid.datainjection.DaggerAppComponent;
+import io.realm.Realm;
 
 /**
  * Created by Medvedeva Anastasiya
@@ -29,8 +30,10 @@ public class LeakCanaryTool extends Application {
         LeakCanary.install(this);
         // Normal app init code...
 
+        Realm.init(this);
+
         appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule())
+                .appModule(new AppModule(this))
                 .build();
     }
 }

@@ -13,4 +13,9 @@
     <string name="name">Имя</string>
     <string name="login">Войти</string>
     <string name="password">Пароль</string>
+
+    <string name="class3">Третье занятие</string>
+    <string name="link">http://nerdbusiness.com/articles/218-wallpapers/previews/Hamad_Darwish_dot_com_Windows_Vista_Wallpapers_16.jpg</string>
+    <string name="task3">Третье задание</string>
+    <string name="task3_button">Нажмите, чтобы сменить картинку</string>
 </resources>
